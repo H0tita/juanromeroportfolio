@@ -23,14 +23,20 @@ Read remote files with the **DesignSync** MCP tool (`get_file` / `list_files`) o
 | `SKILL.md` | `src/design-system/SKILL.md` | skill entry point |
 | `ui_kits/landing/index.html` | `src/design-system/reference/landing.html` | **port target** (reference only) |
 
-## Pending — pull when porting (React ESM, reuse via @astrojs/react)
-Components are clean `import React … export function …` modules. Each has `.jsx` +
-`.d.ts` (types) + `.prompt.md` (usage). Port into `src/components/<group>/` as needed.
+## Ported to `src/components/` (used by the landing island)
+Clean `import React … export function …` modules, reused verbatim via @astrojs/react.
+Composed by `src/components/PortfolioLanding.jsx` (client:load island).
 
-- **core/** — `Button`, `Tag`, `LiveDataWidget`
-- **hud/** — `CornerFrame`, `Crosshair`, `CoordLabel`, `StatusIndicator`, `ProgressBar`, `DotField`
-- **navigation/** — `Navbar` (scroll-aware, lang switch), `Footer`
+- **core/** — `Button`, `LiveDataWidget`
+- **hud/** — `Crosshair`, `CoordLabel`, `StatusIndicator`, `DotField`
+- **navigation/** — `Navbar` (scroll-aware, ESP|ENG switch), `Footer`
 - **work/** — `ProjectCard`
+
+## Pending — pull when porting (React ESM, reuse via @astrojs/react)
+Each remote component has `.jsx` + `.d.ts` (types) + `.prompt.md` (usage).
+
+- **core/** — `Tag`
+- **hud/** — `CornerFrame`, `ProgressBar`
 - **modules/** (case studies) — `CaseHero`, `ProblemStatement`, `ProcessTimeline`, `MetricsBlock`, `BeforeAfter`, `QuoteBlock`, `Gallery`
 - **guidelines/** — 9 spec HTML cards (colors, type, grid, spacing, mobile, brand-logos)
 - **uploads/** — wireframes (`Hero.png`, `work.png`) + moodboards + navbar SVGs.

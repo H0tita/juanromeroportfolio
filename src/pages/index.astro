@@ -1,24 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
+import PortfolioLanding from '../components/PortfolioLanding.jsx';
 ---
 
 <Base>
-  <main style="min-height:100vh; display:grid; place-items:center; padding:96px var(--page-margin-sm);">
-    <div style="max-width:760px; position:relative;">
-      <span class="hud-label" style="color:var(--accent-ink);">JR.SYS.2026 — BOOTSTRAP OK</span>
-      <h1 style="font:var(--text-h1); margin:16px 0 0;">
-        Diseño experiencias que un junior no puede abordar.
-      </h1>
-      <p style="font:var(--text-body-lg); color:var(--ink-600); margin:24px 0 0; max-width:54ch;">
-        Astro + design system importado. Tokens, tipografías (Space Mono / Archivo) y logos
-        activos. La landing real (Navbar · Hero · My Work · Footer) se construye en el
-        siguiente paso.
-      </p>
-      <div style="display:flex; gap:28px; margin-top:40px; padding-top:20px; border-top:1px solid var(--line);">
-        <span class="hud-label">STACK / ASTRO + REACT</span>
-        <span class="hud-label">DS / IMPORTED</span>
-        <span class="hud-label" style="color:var(--accent-ink);">STATUS / ONLINE</span>
-      </div>
-    </div>
-  </main>
+  <PortfolioLanding client:load />
 </Base>
