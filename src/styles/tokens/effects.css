@@ -1,0 +1,13 @@
+:root {
+  --radius-0: 0px;          /* default: everything is square, technical */
+  --radius-1: 2px;          /* only for tiny chips if needed */
+  --border-hair: 1px solid var(--line-strong);
+  --border-rule: 1px solid var(--line);
+  --border-faint: 1px solid var(--line-faint);
+  --shadow-card: none;      /* no soft shadows: depth via lines + surface levels */
+  --shadow-pop: 0 8px 24px rgba(14,31,25,0.12); /* popovers only */
+  --ease-hud: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast: 120ms;
+  --dur-med: 240ms;
+  --dot-grid: radial-gradient(circle, var(--line) var(--dot-size), transparent var(--dot-size));
+}

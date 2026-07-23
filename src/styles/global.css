@@ -1,0 +1,65 @@
+/* JR Portfolio — global stylesheet
+ * Imports the design-system tokens and sets the editorial base.
+ * Aesthetic: Tactical Telemetry UI / Industrial FUI Minimal, LIGHT MODE.
+ * Source of truth: Claude Design project "Design system delivery review"
+ * (projectId b8df3dc2-1f64-40bb-93fa-2edb56c24e60). See src/design-system/README.md.
+ */
+@import './tokens/typography.css';
+@import './tokens/colors.css';
+@import './tokens/spacing.css';
+@import './tokens/effects.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-0);
+  color: var(--ink-900);
+  font: var(--text-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--accent-ink);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-hud);
+}
+
+a:hover {
+  color: var(--ink-900);
+}
+
+/* Square corners everywhere by default (design system golden rule) */
+button,
+input,
+textarea,
+select {
+  border-radius: var(--radius-0);
+  font-family: inherit;
+}
+
+/* HUD micro-label utility — Space Mono, uppercase, tracked */
+.hud-label {
+  font: var(--text-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}

@@ -1,0 +1,42 @@
+:root {
+  /* Base light surfaces — "printed blueprint" tone, subtly mint-tinted */
+  --bg-0: #EFF4F1;            /* page background */
+  --bg-1: #F7FAF8;            /* raised surface / cards */
+  --bg-2: #FFFFFF;            /* topmost surface (inputs, popovers) */
+  --bg-dark: #0E1F19;         /* inverse blocks (dark navbar, footer) */
+  --bg-dark-2: #163026;       /* inverse raised */
+
+  /* Ink */
+  --ink-900: #0E1F19;         /* primary text */
+  --ink-600: #3D5148;         /* secondary text */
+  --ink-400: #6B7F76;         /* tertiary / de-emphasized micro-labels */
+  --ink-inverse: #F1F7F4;     /* text on dark */
+  --ink-inverse-dim: #9FB4AB;
+
+  /* Lines (technical drawing strokes) */
+  --line-strong: #0E1F19;     /* 1px hairline, structural */
+  --line: #B9C9C1;            /* default rules, card borders */
+  --line-faint: #DCE6E1;      /* grid, dot lattice */
+
+  /* Accent — validated mint */
+  --accent: #48B59A;
+  --accent-ink: #257A64;      /* AA-safe accent for text on light bg */
+  --accent-tint: #DCF0E9;     /* fills, active nav block bg */
+  --accent-dim: #48B59A66;
+
+  /* Functional status — same oklch chroma/lightness family as accent */
+  --status-active: #48B59A;                 /* ACTIVE / success */
+  --status-moderate: oklch(0.70 0.09 80);   /* MODERATE / attention */
+  --status-alert: oklch(0.66 0.13 30);      /* ALERT / error */
+  --status-off: #8DA39A;                    /* DISABLED / idle */
+  --status-moderate-ink: oklch(0.50 0.09 80);
+  --status-alert-ink: oklch(0.50 0.13 30);
+
+  /* Semantic aliases */
+  --surface-page: var(--bg-0);
+  --surface-card: var(--bg-1);
+  --text-body-ink: var(--ink-900);
+  --text-secondary-ink: var(--ink-600);
+  --text-label-ink: var(--ink-400);
+  --focus-ring: 2px solid var(--accent-ink);
+}

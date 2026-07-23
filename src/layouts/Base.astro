@@ -1,0 +1,34 @@
+---
+/**
+ * Base layout — HTML shell + global design-system stylesheet.
+ * Aesthetic: Tactical Telemetry UI / Industrial FUI Minimal (light mode).
+ */
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: 'es' | 'en';
+}
+
+const {
+  title = 'Juan Romero — Product Design',
+  description = 'Product designer híbrido — UX, tecnología y negocio. Diseño, valido y construyo flujos complejos de extremo a extremo.',
+  lang = 'es',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/logos/logo-color.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
