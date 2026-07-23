@@ -19,6 +19,7 @@ Read remote files with the **DesignSync** MCP tool (`get_file` / `list_files`) o
 | `assets/logo-ink.svg` | `public/logos/logo-ink.svg` | all ink |
 | `assets/logo-mint.svg` | `public/logos/logo-mint.svg` | all mint |
 | `assets/logo-white.svg` | `public/logos/logo-white.svg` | for dark blocks |
+| `assets/foto-perfil.png` | `public/foto-perfil.jpg` | real photo (added manually, 2320×3088 → cover-cropped 440×520 JPEG q85, 40KB) |
 | `readme.md` | `src/design-system/README.md` | brand guidelines |
 | `SKILL.md` | `src/design-system/SKILL.md` | skill entry point |
 | `ui_kits/landing/index.html` | `src/design-system/reference/landing.html` | **port target** (reference only) |
@@ -29,8 +30,10 @@ Composed by `src/components/PortfolioLanding.jsx` (client:load island).
 
 - **core/** — `Button`, `LiveDataWidget`
 - **hud/** — `Crosshair`, `CoordLabel`, `StatusIndicator`, `DotField`
-- **navigation/** — `Navbar` (scroll-aware, ESP|ENG switch), `Footer`
+- **navigation/** — `Navbar` (scroll-aware, ESP|ENG switch, `onNavigate` scrolls to sections), `Footer`
 - **work/** — `ProjectCard`
+- **sections/** — `AboutSection` (framed photo + experience REC cards), `ContactSection`
+  (inverse block, prototype form → local "sent" state, no backend yet)
 
 ## Pending — pull when porting (React ESM, reuse via @astrojs/react)
 Each remote component has `.jsx` + `.d.ts` (types) + `.prompt.md` (usage).
@@ -45,5 +48,5 @@ Each remote component has `.jsx` + `.d.ts` (types) + `.prompt.md` (usage).
 ## Landing composition (what the port must reproduce)
 `Navbar` (active=Work, ESP|ENG switch, scroll-aware) → hero `<section>` (DotField right 46%,
 Crosshair + LAT/LON coords, StatusIndicator, h1, intro, Button ×2, coord stats row) →
-`#work` section (INDEX labels, h2, ProjectCard grid ×2) → `Footer`. Bilingual ESP/ENG,
-default ESP.
+`#work` section (INDEX labels, h2, ProjectCard grid ×2) → `#about` (`AboutSection`) →
+`#contact` (`ContactSection`) → `Footer`. Bilingual ESP/ENG, default ESP.
