@@ -1,4 +1,5 @@
 import React from 'react';
+import { SOCIAL } from '../../lib/social.js';
 
 /**
  * Contact section — ported from the DS landing (ui_kits/landing/index.html).
@@ -51,7 +52,7 @@ export function ContactSection({ t, L }) {
               </div>
               <div style={{ display: 'flex', gap: 20, alignItems: 'center', marginTop: 6 }}>
                 <button type="submit" style={{ padding: '14px 24px', background: 'var(--accent)', color: '#0E1F19', border: 'none', borderRadius: 0, font: 'var(--text-label)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', cursor: 'pointer' }}>{t.fSubmit} {'↗'}</button>
-                <a href={t.linkedin || '#'} style={{ ...Li, color: 'var(--ink-inverse)', textDecoration: 'none' }}>LINKEDIN {'↗'}</a>
+                <a href={SOCIAL.linkedin} target="_blank" rel="noopener noreferrer" style={{ ...Li, color: 'var(--ink-inverse)', textDecoration: 'none' }}>LINKEDIN {'↗'}</a>
               </div>
             </form>
           )}

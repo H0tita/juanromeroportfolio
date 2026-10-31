@@ -1,6 +1,7 @@
 import React from 'react';
+import { SOCIAL } from '../../lib/social.js';
 /** Inverse footer: logo, nav echo, coordinates, status, credits. */
-export function Footer({ items = ['Work', 'Brand Book', 'About Me', 'Contact'], onNavigate, name = 'Juan Romero', role = 'Product Design · Tech · Business', email = 'hello@juanromero.design', linkedin = '#', year = new Date().getFullYear(), logoSrc = 'assets/logo-white.svg' }) {
+export function Footer({ items = ['Work', 'Brand Book', 'About Me', 'Contact'], onNavigate, name = 'Juan Romero', role = 'Product Design · Tech · Business', email = 'hello@juanromero.design', linkedin = SOCIAL.linkedin, youtube = SOCIAL.youtube, year = new Date().getFullYear(), logoSrc = 'assets/logo-white.svg' }) {
   const lbl = { font: 'var(--text-label)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--ink-inverse-dim)' };
   const a = { ...lbl, color: 'var(--ink-inverse)', textDecoration: 'none', cursor: 'pointer' };
   return (
@@ -16,7 +17,8 @@ export function Footer({ items = ['Work', 'Brand Book', 'About Me', 'Contact'], 
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           <a href={'mailto:' + email} style={a}>{email}</a>
-          <a href={linkedin} style={a}>LinkedIn {'↗'}</a>
+          <a href={linkedin} target="_blank" rel="noopener noreferrer" style={a}>LinkedIn {'↗'}</a>
+          <a href={youtube} target="_blank" rel="noopener noreferrer" style={a}>YouTube {'↗'}</a>
           <span style={{ ...lbl, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
             <span style={{ width: 8, height: 8, background: 'var(--status-active)', animation: 'jr-blink 1.2s steps(2,start) infinite' }} />OPEN TO WORK
           </span>

@@ -1,4 +1,6 @@
 import React from 'react';
+import { SocialLink } from '../core/SocialLink.jsx';
+import { SOCIAL } from '../../lib/social.js';
 
 /**
  * About section — ported from the DS landing (ui_kits/landing/index.html).
@@ -34,6 +36,10 @@ export function AboutSection({ t, L }) {
           <h2 style={{ margin: 0, font: 'var(--text-h2)' }}>{t.aboutTitle}</h2>
           <div style={{ ...L, color: 'var(--accent-ink)', marginTop: 12 }}>{t.aboutRole}</div>
           <p style={{ margin: '18px 0 0', font: 'var(--text-body-lg)', color: 'var(--ink-600)', maxWidth: '58ch' }}>{t.aboutBio}</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 28 }}>
+            <SocialLink network="linkedin" href={SOCIAL.linkedin} label="LinkedIn" />
+            <SocialLink network="youtube" href={SOCIAL.youtube} label="YouTube" />
+          </div>
         </div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', margin: '56px 0 20px' }}>
