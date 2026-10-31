@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import IngCase from '../../components/cases/IngCase.jsx';
+import { ING_CASE } from '../../content/work/ing';
+---
+
+<Base title={ING_CASE.ESP.pageTitle} description={ING_CASE.ESP.intro}>
+  <IngCase client:load />
+</Base>

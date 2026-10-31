@@ -9,6 +9,8 @@ import { StatusIndicator } from './hud/StatusIndicator.jsx';
 import { Crosshair } from './hud/Crosshair.jsx';
 import { AboutSection } from './sections/AboutSection.jsx';
 import { ContactSection } from './sections/ContactSection.jsx';
+import { useLang } from '../lib/useLang.js';
+import { NAV_TARGET } from '../lib/nav.js';
 
 /**
  * Portfolio landing island — ported from the design-system reference
@@ -23,8 +25,9 @@ const COPY = {
     cta: 'Ver proyectos', cta2: 'Contacto',
     workTitle: 'My Work',
     workIntro: 'Casos seleccionados. Cada proyecto documenta problema, proceso y resultado con métricas verificadas.',
-    p1: { title: 'Onboarding Fintech', excerpt: 'Rediseño de un flujo KYC: -38% de abandono en 6 pasos.' },
-    p2: { title: 'Dashboard de Telemetría', excerpt: 'Design system + visualización de datos en vivo para un control room.' },
+    p1: { title: 'Intranet ING', excerpt: 'Rediseño y migración a SharePoint Online', metric: { value: '60% → 85%', label: 'satisfacción' } },
+    p2: { title: 'Presupuestador Piscilona', excerpt: 'Ficha técnica + web app', metric: { value: '2–4 h → 3 min', label: 'por presupuesto' } },
+    p3: { title: 'Intrabuddy · ING', excerpt: 'Agente de IA en la intranet de ING', metric: { value: '~60%', label: 'menos tiempo de búsqueda' } },
     aboutTitle: 'Juan Romero',
     aboutRole: 'UX Product Designer | Product + Tech + Business | AI Enthusiastic',
     aboutBio: 'Me considero un perfil híbrido capaz de desarrollar proyectos End To End, haciendo de puente entre las ramas de Producto, Tech y Negocio.',
@@ -32,7 +35,7 @@ const COPY = {
     exp: [
       { company: 'Telefónica Tech (Novanotio)', role: 'UX Product Manager', current: true, bullets: ['Diseño UX/UI de dashboards y PPTs.', 'Planificación de proyectos en sectores IoT, IA, robótica, cyber e innovación.', 'Market research.'], period: 'JUL 2026 — PRESENT', location: 'MADRID, ES' },
       { company: 'ING Spain & Portugal', role: 'Product Designer & AI Implementator', bullets: ['Diseño UX/UI de la Intranet del banco.', 'Product Owner, comunicación y colaboración con stakeholders.', 'Implementación de agentes IA.'], period: 'JUL 2025 — JUL 2026', location: 'MADRID, ES' },
-      { company: 'Piscilona S.L. (Freelance)', role: 'UX/UI & Service Design', bullets: ['Diseño UX/UI de un presupuestador automático.', 'Diseño de proceso End-To-End.', 'Diseño de ficha técnica física.'], period: 'ENE 2025 — MAR 2026', location: 'MADRID, ES' }
+      { company: 'Piscilona S.L. (Freelance)', role: 'UX/UI & Service Design', bullets: ['Diseño UX/UI de un presupuestador automático.', 'Diseño de proceso End-To-End.', 'Diseño de ficha técnica física.'], period: 'ENE 2025 — MAR 2025', location: 'MADRID, ES' }
     ],
     contactTitle: 'Contact',
     contactIntro: 'Si quieres ponerte en contacto conmigo puedes hacerlo a través de este formulario.',
@@ -47,8 +50,9 @@ const COPY = {
     cta: 'View work', cta2: 'Contact',
     workTitle: 'My Work',
     workIntro: 'Selected cases. Each project documents problem, process and outcome with verified metrics.',
-    p1: { title: 'Fintech Onboarding', excerpt: 'KYC flow redesign: -38% drop-off across 6 steps.' },
-    p2: { title: 'Telemetry Dashboard', excerpt: 'Design system + live data visualization for an ops control room.' },
+    p1: { title: 'ING Intranet', excerpt: 'Redesign and migration to SharePoint Online', metric: { value: '60% → 85%', label: 'satisfaction' } },
+    p2: { title: 'Piscilona Budgeting Tool', excerpt: 'Data sheet + web app', metric: { value: '2–4 h → 3 min', label: 'per quote' } },
+    p3: { title: 'Intrabuddy · ING', excerpt: 'AI agent in the ING intranet', metric: { value: '~60%', label: 'less search time' } },
     aboutTitle: 'Juan Romero',
     aboutRole: 'UX Product Designer | Product + Tech + Business | AI Enthusiastic',
     aboutBio: 'I am a hybrid profile able to run End To End projects, bridging Product, Tech and Business.',
@@ -56,7 +60,7 @@ const COPY = {
     exp: [
       { company: 'Telefónica Tech (Novanotio)', role: 'UX Product Manager', current: true, bullets: ['UX/UI design of dashboards and PPTs.', 'Project planning across IoT, AI, robotics, cyber and innovation.', 'Market research.'], period: 'JUL 2026 — PRESENT', location: 'MADRID, ES' },
       { company: 'ING Spain & Portugal', role: 'Product Designer & AI Implementator', bullets: ['UX/UI design of the bank intranet.', 'Product Owner, stakeholder communication and collaboration.', 'AI agent implementation.'], period: 'JUL 2025 — JUL 2026', location: 'MADRID, ES' },
-      { company: 'Piscilona S.L. (Freelance)', role: 'UX/UI & Service Design', bullets: ['UX/UI design of an automatic quoting tool.', 'End-To-End process design.', 'Physical spec sheet design.'], period: 'JAN 2025 — MAR 2026', location: 'MADRID, ES' }
+      { company: 'Piscilona S.L. (Freelance)', role: 'UX/UI & Service Design', bullets: ['UX/UI design of an automatic quoting tool.', 'End-To-End process design.', 'Physical spec sheet design.'], period: 'JAN 2025 — MAR 2025', location: 'MADRID, ES' }
     ],
     contactTitle: 'Contact',
     contactIntro: 'If you want to get in touch you can do it through this form.',
@@ -66,11 +70,8 @@ const COPY = {
   }
 };
 
-/** Map a nav label to a section id; null = not built yet (no scroll). */
-const NAV_TARGET = { 'Work': 'work', 'About Me': 'about', 'Contact': 'contact', 'Brand Book': null };
-
 export default function PortfolioLanding() {
-  const [lang, setLang] = React.useState('ESP');
+  const [lang, setLang] = useLang();
   const [scrolled, setScrolled] = React.useState(false);
   React.useEffect(() => {
     const on = () => setScrolled(window.scrollY > 80);
@@ -108,13 +109,14 @@ export default function PortfolioLanding() {
       <section id="work" data-screen-label="My Work" style={{ padding: '72px var(--page-margin, 64px) 96px', borderTop: '1px solid var(--line-strong)', background: 'var(--bg-1)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
           <span style={{ ...L, color: 'var(--accent-ink)' }}>JR.WORK — INDEX</span>
-          <span style={L}>02 REC / ALL SYSTEMS NOMINAL</span>
+          <span style={L}>03 REC / ALL SYSTEMS NOMINAL</span>
         </div>
         <h2 style={{ margin: 0, font: 'var(--text-h2)' }}>{t.workTitle}</h2>
         <p style={{ margin: '16px 0 0', font: 'var(--text-body)', color: 'var(--ink-600)', maxWidth: '60ch' }}>{t.workIntro}</p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: 24, marginTop: 40 }}>
-          <ProjectCard index="01" title={t.p1.title} excerpt={t.p1.excerpt} categories={['UX', 'Research', 'Frontend']} meta="JR.WORK.001" lang={lang} />
-          <ProjectCard index="02" title={t.p2.title} excerpt={t.p2.excerpt} categories={['Product', 'Data Viz']} meta="JR.WORK.002" lang={lang} />
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24, marginTop: 40 }}>
+          <ProjectCard index="01" title={t.p1.title} excerpt={t.p1.excerpt} metric={t.p1.metric} categories={['UX', 'Info Architecture', 'Banking']} meta="JR.WORK.001" href="/work/ing" lang={lang} />
+          <ProjectCard index="02" title={t.p2.title} excerpt={t.p2.excerpt} metric={t.p2.metric} categories={['UX/UI', 'Service Design', 'SaaS']} meta="JR.WORK.002" href="/work/automatic-budgeting-piscilona-sl" lang={lang} />
+          <ProjectCard index="03" title={t.p3.title} excerpt={t.p3.excerpt} metric={t.p3.metric} categories={['AI', 'Prompting', 'Data']} meta="JR.WORK.003" href="/work/intrabuddy" lang={lang} />
         </div>
       </section>
       <AboutSection t={t} L={L} />

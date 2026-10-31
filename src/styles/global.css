@@ -32,6 +32,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Anchor targets (/#work, /#contact...) land below the sticky navbar */
+section[id] {
+  scroll-margin-top: 64px;
+}
+
 a {
   color: var(--accent-ink);
   text-decoration: none;

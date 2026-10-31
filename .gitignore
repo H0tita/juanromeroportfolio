@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # playwright mcp session artifacts
 .playwright-mcp/
+
+# case study interview notes (raw, not published)
+src/content/work/*.brief.md

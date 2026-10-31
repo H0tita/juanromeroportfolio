@@ -34,13 +34,38 @@ Composed by `src/components/PortfolioLanding.jsx` (client:load island).
 - **work/** — `ProjectCard`
 - **sections/** — `AboutSection` (framed photo + experience REC cards), `ContactSection`
   (inverse block, prototype form → local "sent" state, no backend yet)
+- **modules/** (case studies, used by `CaseStudyPage.jsx` → `/work/<slug>`) — `CaseHero`,
+  `ProcessTimeline` verbatim (`CaseHero` since restyled: top strip + meta row are inverse
+  `--bg-dark` blocks with light text). Local extensions, backwards-compatible (defaults = remote behaviour):
+  `ProblemStatement` (+`label` to reuse it for role / IA / decisions, +`extra` full-width slot;
+  **layout changed**: left label rail → header row + left-aligned content, matching the other modules),
+  `BeforeAfter` (+`beforeContent`/`afterContent` slots for schematics instead of images),
+  `MetricsBlock` (+`source`, header provenance label; default `VERIFIED`).
+  **Not pushed back to Claude Design yet.**
+
+Local-only (not in the DS):
+- Case shell: `case/CaseLayout` (Navbar + back link + CaseHero + CTA + Footer, body as
+  `children(t, lang)`), `case/Body` (paragraphs from content data), `case/ModuleSection`
+  (full-width module header for interactives/tables). One island per case in `cases/`
+  (`IngCase`, `PiscilonaCase`), content in `src/content/work/<slug>.ts`.
+- Schematics (confidential projects): `case/HomeSchematic`, `case/PathSchematic`.
+- Interactives (Piscilona): `case/SheetFormMap` (paper sheet ↔ web form linked fields),
+  `case/BudgetSimulator` (4-step playable quote, validated inputs, fictitious rates),
+  `case/TimeCompare` (animated before/after time bars), `case/UsabilityTable`.
+- Shared card pieces: `case/HoverCard` (mint tint + green corner brackets, neutral border),
+  `case/KeyFactCards` (label + big figure + text; 4 cards → 2×2), `case/FlowSteps` (vertical
+  spec-sheet flow with rails).
+- Interactives (Intrabuddy): `case/SearchRace` (without vs with agent, relative time scale),
+  `case/ImpactCalculator` (business projection labelled ESTIMATE, formula shown live),
+  `case/TeamTree` (team org chart).
+- `lib/useLang` (ESP|ENG shared across pages via localStorage), `lib/nav` (nav label → section).
 
 ## Pending — pull when porting (React ESM, reuse via @astrojs/react)
 Each remote component has `.jsx` + `.d.ts` (types) + `.prompt.md` (usage).
 
 - **core/** — `Tag`
 - **hud/** — `CornerFrame`, `ProgressBar`
-- **modules/** (case studies) — `CaseHero`, `ProblemStatement`, `ProcessTimeline`, `MetricsBlock`, `BeforeAfter`, `QuoteBlock`, `Gallery`
+- **modules/** — `QuoteBlock`, `Gallery` (skipped for the ING case: no real quote, no screens)
 - **guidelines/** — 9 spec HTML cards (colors, type, grid, spacing, mobile, brand-logos)
 - **uploads/** — wireframes (`Hero.png`, `work.png`) + moodboards + navbar SVGs.
   Binary refs only, NOT production assets — skipped intentionally.

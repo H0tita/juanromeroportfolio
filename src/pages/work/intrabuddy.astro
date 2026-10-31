@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import IntrabuddyCase from '../../components/cases/IntrabuddyCase.jsx';
+import { INTRABUDDY_CASE } from '../../content/work/intrabuddy';
+---
+
+<Base title={INTRABUDDY_CASE.ESP.pageTitle} description={INTRABUDDY_CASE.ESP.intro}>
+  <IntrabuddyCase client:load />
+</Base>

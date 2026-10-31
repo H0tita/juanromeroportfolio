@@ -1,6 +1,6 @@
 import React from 'react';
-/** Project card from work.png wireframe: image field, index, tag, title, excerpt, hover brackets. */
-export function ProjectCard({ index = '01', title = 'Project Title', excerpt = '', tag = 'Case Study', categories = [], image, meta, href = '#', onClick, lang = 'ENG' }) {
+/** Project card from work.png wireframe: image field, index, tag, title, excerpt (subtitle), optional key metric { value, label }, hover brackets. */
+export function ProjectCard({ index = '01', title = 'Project Title', excerpt = '', metric, tag = 'Case Study', categories = [], image, meta, href = '#', onClick, lang = 'ENG' }) {
   const [hover, setHover] = React.useState(false);
   const bk = (pos) => (
     <span style={{ position: 'absolute', width: 18, height: 18, ...pos, borderColor: 'var(--accent)', borderStyle: 'solid', borderWidth: 0, opacity: hover ? 1 : 0, transition: 'opacity var(--dur-fast) var(--ease-hud)', zIndex: 2,
@@ -11,7 +11,7 @@ export function ProjectCard({ index = '01', title = 'Project Title', excerpt = '
   );
   return (
     <a href={href} onClick={onClick} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
-      style={{ position: 'relative', display: 'block', textDecoration: 'none', color: 'var(--ink-900)', background: 'var(--bg-1)', border: '1px solid ' + (hover ? 'var(--ink-900)' : 'var(--line)'), transition: 'border-color var(--dur-fast) var(--ease-hud)' }}>
+      style={{ position: 'relative', display: 'block', textDecoration: 'none', color: 'var(--ink-900)', background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
       {bk({ top: -1, left: -1 })}{bk({ top: -1, right: -1 })}{bk({ bottom: -1, left: -1 })}{bk({ bottom: -1, right: -1 })}
       <div style={{ position: 'relative', aspectRatio: '16/10', background: '#8FA69B', overflow: 'hidden' }}>
         {image
@@ -30,6 +30,12 @@ export function ProjectCard({ index = '01', title = 'Project Title', excerpt = '
           <span style={{ font: 'var(--text-label)', letterSpacing: 'var(--tracking-label)', color: hover ? 'var(--accent-ink)' : 'var(--ink-400)', whiteSpace: 'nowrap', transition: 'color var(--dur-fast)' }}>{lang === 'ESP' ? 'VER PROYECTO' : 'VIEW PROJECT'} {'↗'}</span>
         </div>
         {excerpt && <p style={{ margin: '10px 0 0', font: 'var(--text-body-sm)', color: 'var(--ink-600)' }}>{excerpt}</p>}
+        {metric && (
+          <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', columnGap: 10, rowGap: 4, marginTop: 14 }}>
+            <span style={{ font: '700 clamp(22px, 2.2vw, 28px)/1.1 var(--font-mono)', color: 'var(--accent-ink)' }}>{metric.value}</span>
+            <span style={{ font: 'var(--text-label)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--ink-400)' }}>{metric.label}</span>
+          </div>
+        )}
         {(categories.length > 0 || meta) && (
           <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, marginTop: 14, paddingTop: 12, borderTop: '1px solid var(--line-faint)' }}>
             <span style={{ font: 'var(--text-micro)', letterSpacing: 'var(--tracking-micro)', textTransform: 'uppercase', color: 'var(--ink-400)' }}>{categories.join(' / ')}</span>
