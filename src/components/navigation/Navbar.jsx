@@ -27,7 +27,15 @@ export function Navbar({ items = ['Work', 'Brand Book', 'About Me', 'Contact'], 
         </div>
       )}
       <nav style={{ background: scrolled ? 'rgba(247,250,248,0.92)' : 'var(--bg-1)', backdropFilter: scrolled ? 'blur(8px)' : 'none', borderBottom: '1px solid ' + (scrolled ? 'var(--line-strong)' : 'var(--line)'), padding: '0 var(--page-margin, 64px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'all var(--dur-med) var(--ease-hud)' }}>
-        <img src={logoSrc} alt="JR" style={{ height: scrolled ? 26 : 32, transition: 'height var(--dur-med) var(--ease-hud)' }} />
+        <a href="/" aria-label="Home" style={{ display: 'flex' }}
+          onClick={(e) => {
+            if (window.location.pathname !== '/') return;
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            history.replaceState(null, '', '/');
+          }}>
+          <img src={logoSrc} alt="JR" style={{ height: scrolled ? 26 : 32, transition: 'height var(--dur-med) var(--ease-hud)' }} />
+        </a>
         <div style={{ display: 'flex', alignItems: 'center' }}>{items.map(link)}</div>
       </nav>
     </div>

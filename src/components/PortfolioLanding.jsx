@@ -35,7 +35,7 @@ const COPY = {
     exp: [
       { company: 'Telefónica Tech (Novanotio)', role: 'UX Product Manager', current: true, bullets: ['Diseño UX/UI de dashboards y PPTs.', 'Planificación de proyectos en sectores IoT, IA, robótica, cyber e innovación.', 'Market research.'], period: 'JUL 2026 — PRESENT', location: 'MADRID, ES' },
       { company: 'ING Spain & Portugal', role: 'Product Designer & AI Implementator', bullets: ['Diseño UX/UI de la Intranet del banco.', 'Product Owner, comunicación y colaboración con stakeholders.', 'Implementación de agentes IA.'], period: 'JUL 2025 — JUL 2026', location: 'MADRID, ES' },
-      { company: 'Piscilona S.L. (Freelance)', role: 'UX/UI & Service Design', bullets: ['Diseño UX/UI de un presupuestador automático.', 'Diseño de proceso End-To-End.', 'Diseño de ficha técnica física.'], period: 'ENE 2025 — MAR 2025', location: 'MADRID, ES' }
+      { company: 'Freelance', role: 'UX/UI & Service Design', bullets: ['Piscilona S.L. (ene – mar 2025): diseño UX/UI de un presupuestador automático.', 'Diseño de proceso End-To-End.', 'Diseño de ficha técnica física.'], period: 'JUL 2024 — JUN 2025', location: 'MADRID, ES' }
     ],
     contactTitle: 'Contact',
     contactIntro: 'Si quieres ponerte en contacto conmigo puedes hacerlo a través de este formulario.',
@@ -60,7 +60,7 @@ const COPY = {
     exp: [
       { company: 'Telefónica Tech (Novanotio)', role: 'UX Product Manager', current: true, bullets: ['UX/UI design of dashboards and PPTs.', 'Project planning across IoT, AI, robotics, cyber and innovation.', 'Market research.'], period: 'JUL 2026 — PRESENT', location: 'MADRID, ES' },
       { company: 'ING Spain & Portugal', role: 'Product Designer & AI Implementator', bullets: ['UX/UI design of the bank intranet.', 'Product Owner, stakeholder communication and collaboration.', 'AI agent implementation.'], period: 'JUL 2025 — JUL 2026', location: 'MADRID, ES' },
-      { company: 'Piscilona S.L. (Freelance)', role: 'UX/UI & Service Design', bullets: ['UX/UI design of an automatic quoting tool.', 'End-To-End process design.', 'Physical spec sheet design.'], period: 'JAN 2025 — MAR 2025', location: 'MADRID, ES' }
+      { company: 'Freelance', role: 'UX/UI & Service Design', bullets: ['Piscilona S.L. (Jan – Mar 2025): UX/UI design of an automatic quoting tool.', 'End-To-End process design.', 'Physical spec sheet design.'], period: 'JUL 2024 — JUN 2025', location: 'MADRID, ES' }
     ],
     contactTitle: 'Contact',
     contactIntro: 'If you want to get in touch you can do it through this form.',
@@ -73,9 +73,24 @@ const COPY = {
 export default function PortfolioLanding() {
   const [lang, setLang] = useLang();
   const [scrolled, setScrolled] = React.useState(false);
+  const [active, setActive] = React.useState(null);
   React.useEffect(() => {
-    const on = () => setScrolled(window.scrollY > 80);
-    window.addEventListener('scroll', on);
+    // Scroll spy: the active nav item is the last section whose top has passed under the
+    // sticky navbar; none while on the hero. At the very bottom the last section wins,
+    // since a short final section may never reach the top.
+    const sections = Object.entries(NAV_TARGET).filter(([, id]) => id);
+    const on = () => {
+      setScrolled(window.scrollY > 80);
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      let current = null;
+      for (const [label, id] of sections) {
+        const el = document.getElementById(id);
+        if (el && (el.getBoundingClientRect().top <= 120 || atBottom)) current = label;
+      }
+      setActive(current);
+    };
+    on();
+    window.addEventListener('scroll', on, { passive: true });
     return () => window.removeEventListener('scroll', on);
   }, []);
   const t = COPY[lang];
@@ -84,7 +99,7 @@ export default function PortfolioLanding() {
   const navigate = (label) => { const id = NAV_TARGET[label]; id && scrollTo(id); };
   return (
     <div>
-      <Navbar active="Work" lang={lang} onLangChange={setLang} onNavigate={navigate} scrolled={scrolled} logoSrc="/logos/logo-color.svg" city="Madrid, Spain" />
+      <Navbar active={active} lang={lang} onLangChange={setLang} onNavigate={navigate} scrolled={scrolled} logoSrc="/logos/logo-color.svg" city="Madrid, Spain" />
       <section data-screen-label="Hero" style={{ position: 'relative', padding: '96px var(--page-margin, 64px) 120px', overflow: 'hidden' }}>
         <DotField fade="left" gap={22} style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '46%' }} />
         <div style={{ position: 'absolute', top: 28, right: 'var(--page-margin, 64px)', display: 'flex', gap: 24, alignItems: 'center' }}>
