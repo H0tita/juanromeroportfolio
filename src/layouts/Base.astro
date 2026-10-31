@@ -27,6 +27,18 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <script is:inline>
+      // --sbw = vertical scrollbar width. Full-bleed bands use 100vw, which includes it;
+      // subtracting it keeps them exactly as wide as the visible page (no horizontal scroll).
+      (function () {
+        var set = function () {
+          document.documentElement.style.setProperty('--sbw', (window.innerWidth - document.documentElement.clientWidth) + 'px');
+        };
+        set();
+        window.addEventListener('resize', set);
+        window.addEventListener('load', set);
+      })();
+    </script>
   </head>
   <body>
     <slot />

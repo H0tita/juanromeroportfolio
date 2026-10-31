@@ -198,10 +198,12 @@ const ESP = {
     aria: 'Tiempo por presupuesto: antes de 2 a 4 horas, ahora unos 3 minutos; entre 40 y 80 veces más rápido.',
   },
 
+  headings: { process: 'Cómo lo abordé: doble diamante', time: 'De horas a minutos', metrics: 'Resultados en el uso diario' },
+
   metricsTitle: 'Results',
   metrics: [
-    { value: '3 min', label: 'TIME PER QUOTE', caption: 'antes, de 2 a 4 h', direction: 'down' },
-    { value: 'LIVE', label: 'IN PRODUCTION', caption: 'en uso diario en Piscilona' },
+    { value: '3 min', from: 120, label: 'TIEMPO POR PRESUPUESTO', caption: 'antes, de 2 a 4 h', direction: 'down' },
+    { value: 'LIVE', label: 'EN PRODUCCIÓN', caption: 'en uso diario en Piscilona' },
   ],
   metricsNote: 'Tiempo medido en el test de usabilidad (4 participantes) y mantenido en el uso diario.',
   impact: {
@@ -390,9 +392,11 @@ const ENG: typeof ESP = {
     aria: 'Time per quote: before, 2 to 4 hours; now, about 3 minutes — 40 to 80 times faster.',
   },
 
+  headings: { process: 'How I approached it: double diamond', time: 'From hours to minutes', metrics: 'Results in daily use' },
+
   metricsTitle: 'Results',
   metrics: [
-    { value: '3 min', label: 'TIME PER QUOTE', caption: 'down from 2–4 h', direction: 'down' },
+    { value: '3 min', from: 120, label: 'TIME PER QUOTE', caption: 'down from 2–4 h', direction: 'down' },
     { value: 'LIVE', label: 'IN PRODUCTION', caption: 'in daily use at Piscilona' },
   ],
   metricsNote: 'Time measured in the usability test (4 participants) and sustained in daily use.',

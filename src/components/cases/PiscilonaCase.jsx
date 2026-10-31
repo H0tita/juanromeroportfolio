@@ -28,7 +28,7 @@ export default function PiscilonaCase() {
             <Body items={t.role.body} />
           </ProblemStatement>
 
-          <ProcessTimeline moduleId="MOD.03" phases={t.phases} />
+          <ProcessTimeline moduleId="MOD.03" heading={t.headings.process} phases={t.phases} />
 
           <ProblemStatement moduleId="MOD.04" label="KEY DECISION" heading={t.decision.heading} highlight={t.decision.highlight}
             aside={<FlowSteps steps={t.decision.flow} handoff={t.decision.flowHandoff} aria={t.decision.flowAria} />}>
@@ -47,11 +47,11 @@ export default function PiscilonaCase() {
             <UsabilityTable cols={t.test.cols} rows={t.test.rows} />
           </ModuleSection>
 
-          <ModuleSection moduleId="MOD.08" label="TIME PER QUOTE / BEFORE-AFTER">
+          <ModuleSection moduleId="MOD.08" label="TIME PER QUOTE / BEFORE-AFTER" heading={t.headings.time}>
             <TimeCompare data={t.time} />
           </ModuleSection>
 
-          <MetricsBlock moduleId="MOD.09" title={t.metricsTitle} source="REPORTED" metrics={t.metrics} note={t.metricsNote} style={{ borderTop: 'none', paddingTop: 0 }} />
+          <MetricsBlock moduleId="MOD.09" title={t.metricsTitle} heading={t.headings.metrics} source="REPORTED" metrics={t.metrics} note={t.metricsNote} dark fullBleed />
 
           <ProblemStatement moduleId="MOD.10" label="IMPACT" heading={t.impact.heading}
             extra={<KeyFactCards facts={t.impact.facts} />} />

@@ -41,7 +41,7 @@ export default function IntrabuddyCase() {
             <Body items={t.pilot.body} />
           </ProblemStatement>
 
-          <MetricsBlock moduleId="MOD.06" title={t.metricsTitle} source="REPORTED" metrics={t.metrics} note={t.metricsNote} />
+          <MetricsBlock moduleId="MOD.06" title={t.metricsTitle} heading={t.headings.metrics} source="REPORTED" metrics={t.metrics} note={t.metricsNote} dark fullBleed />
 
           <ProblemStatement moduleId="MOD.07" label="IMPACT" heading={t.impact.heading}
             extra={<KeyFactCards facts={t.impact.facts} />} />

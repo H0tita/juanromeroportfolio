@@ -63,12 +63,12 @@ const ESP = {
 
   ia: {
     heading: 'Menos niveles, nombres claros, atajos por perfil',
-    body: [
-      { lead: 'Navegación por vertical.', text: 'Financiación, Clientes y Canales con estructura propia, construida sobre el contenido que sobrevivió a la auditoría.' },
-      { lead: 'Menos profundidad.', text: 'Aplanar la jerarquía para llegar al contenido en menos clics.' },
-      { lead: 'Taxonomía y etiquetado.', text: 'Nombres que entiende quien busca y metadatos para que el buscador de SharePoint Online funcione.' },
-      { lead: 'Accesos por perfil.', text: 'Lo que más usa un gestor, un coordinador o el Contact Center, a un clic.' },
-    ] as Paragraph[],
+    facts: [
+      { label: 'NAVIGATION', title: 'Navegación por vertical', text: 'Financiación, Clientes y Canales con estructura propia, construida sobre el contenido que sobrevivió a la auditoría.' },
+      { label: 'DEPTH', title: 'Menos profundidad', text: 'Aplanar la jerarquía para llegar al contenido en menos clics.' },
+      { label: 'TAXONOMY', title: 'Taxonomía y etiquetado', text: 'Nombres que entiende quien busca y metadatos para que el buscador de SharePoint Online funcione.' },
+      { label: 'SHORTCUTS', title: 'Accesos por perfil', text: 'Lo que más usa un gestor, un coordinador o el Contact Center, a un clic.' },
+    ],
   },
 
   path: {
@@ -111,22 +111,24 @@ const ESP = {
 
   decisions: {
     heading: 'Cuatro decisiones de la nueva home',
-    body: [
-      { lead: 'Documentos vivos.', text: 'Plantillas de Word y Excel enlazadas que se actualizan en origen. Nadie se descarga una copia que a los pocos días está caducada: una única fuente de verdad, también para los documentos.' },
-      { lead: 'Novedades sin ruido.', text: 'El banner de novedad solo aparece cuando hay algo nuevo de verdad, para no quemar a la gente con avisos permanentes.' },
-      { lead: 'Operativa a primer nivel.', text: 'Formularios, plantillas y procesos agrupados por sección (cajeros y efectivo, tarjetas…), no por departamento.' },
-      { lead: 'Una home que recuerda.', text: 'Páginas guardadas, últimos documentos visitados e itinerarios de formación según el tipo de empleado.' },
-    ] as Paragraph[],
+    facts: [
+      { label: 'LIVE DOCS', title: 'Documentos vivos', text: 'Plantillas de Word y Excel enlazadas que se actualizan en origen. Nadie se descarga una copia que a los pocos días está caducada: una única fuente de verdad, también para los documentos.' },
+      { label: 'NOTIFICATIONS', title: 'Novedades sin ruido', text: 'El banner de novedad solo aparece cuando hay algo nuevo de verdad, para no quemar a la gente con avisos permanentes.' },
+      { label: 'OPERATIONS', title: 'Operativa a primer nivel', text: 'Formularios, plantillas y procesos agrupados por sección (cajeros y efectivo, tarjetas…), no por departamento.' },
+      { label: 'PERSONALISATION', title: 'Una home que recuerda', text: 'Páginas guardadas, últimos documentos visitados e itinerarios de formación según el tipo de empleado.' },
+    ],
   },
 
   schematicNote: 'Esquemas redibujados y simplificados por confidencialidad. No reproducen pantallas ni datos internos de ING.',
 
+  headings: { process: 'Cómo lo hicimos, en cuatro fases', compare: 'Antes y después', path: 'El camino hasta un procedimiento', home: 'La home de Oficinas', metrics: 'Lo que cambió con la nueva intranet' },
+
   metricsTitle: 'Results',
   metrics: [
-    { value: '85%', label: 'USER SATISFACTION', caption: 'desde 60% · feb 2026', direction: 'up' },
-    { value: '35%', label: 'CLICKS TO CONTENT', caption: 'menos clics hasta el contenido', direction: 'down' },
-    { value: '~50%', label: 'CONTENT PRUNED', caption: 'eliminado o fusionado antes de migrar', direction: 'down' },
-    { value: '100%', label: 'MIGRATION', caption: 'completada en feb 2026' },
+    { value: '85%', from: 60, label: 'SATISFACCIÓN', caption: 'desde 60% · feb 2026', direction: 'up' },
+    { value: '35%', label: 'CLICS HASTA EL CONTENIDO', caption: 'menos clics hasta el contenido', direction: 'down' },
+    { value: '~50%', label: 'CONTENIDO DEPURADO', caption: 'eliminado o fusionado antes de migrar', direction: 'down' },
+    { value: '100%', label: 'MIGRACIÓN', caption: 'completada en feb 2026' },
   ],
   metricsNote: 'Satisfacción medida por fases a lo largo de la migración. El resto de cifras son aproximadas.',
   aftermath: 'Tras la migración, el nuevo formato y sus plantillas se adoptaron como estándar para crear las secciones nuevas, y el feedback de usuarios y áreas fue positivo.',
@@ -173,11 +175,11 @@ const ENG: typeof ESP = {
 
   ia: {
     heading: 'Fewer levels, clear names, shortcuts by profile',
-    body: [
-      { lead: 'Navigation by vertical.', text: 'Financing, Customers and Channels each with their own structure, built on the content that survived the audit.' },
-      { lead: 'Less depth.', text: 'A flatter hierarchy to reach content in fewer clicks.' },
-      { lead: 'Taxonomy and tagging.', text: 'Names that make sense to whoever is searching, and metadata so SharePoint Online search actually works.' },
-      { lead: 'Shortcuts by profile.', text: 'What a manager, a coordinator or the Contact Center uses most, one click away.' },
+    facts: [
+      { label: 'NAVIGATION', title: 'Navigation by vertical', text: 'Financing, Customers and Channels each with their own structure, built on the content that survived the audit.' },
+      { label: 'DEPTH', title: 'Less depth', text: 'A flatter hierarchy to reach content in fewer clicks.' },
+      { label: 'TAXONOMY', title: 'Taxonomy and tagging', text: 'Names that make sense to whoever is searching, and metadata so SharePoint Online search actually works.' },
+      { label: 'SHORTCUTS', title: 'Shortcuts by profile', text: 'What a manager, a coordinator or the Contact Center uses most, one click away.' },
     ],
   },
 
@@ -221,19 +223,21 @@ const ENG: typeof ESP = {
 
   decisions: {
     heading: 'Four decisions behind the new home',
-    body: [
-      { lead: 'Live documents.', text: 'Linked Word and Excel templates updated at the source. Nobody downloads a copy that is outdated a few days later: a single source of truth, for documents too.' },
-      { lead: 'News without noise.', text: 'The news banner only shows up when there is something genuinely new, so people don’t burn out on permanent alerts.' },
-      { lead: 'Operations first.', text: 'Forms, templates and processes grouped by section (ATMs & cash, cards…), not by department.' },
-      { lead: 'A home that remembers.', text: 'Saved pages, recently visited documents and training paths by employee type.' },
+    facts: [
+      { label: 'LIVE DOCS', title: 'Live documents', text: 'Linked Word and Excel templates updated at the source. Nobody downloads a copy that is outdated a few days later: a single source of truth, for documents too.' },
+      { label: 'NOTIFICATIONS', title: 'News without noise', text: 'The news banner only shows up when there is something genuinely new, so people don’t burn out on permanent alerts.' },
+      { label: 'OPERATIONS', title: 'Operations first', text: 'Forms, templates and processes grouped by section (ATMs & cash, cards…), not by department.' },
+      { label: 'PERSONALISATION', title: 'A home that remembers', text: 'Saved pages, recently visited documents and training paths by employee type.' },
     ],
   },
 
   schematicNote: 'Schematics redrawn and simplified for confidentiality. They do not reproduce ING screens or internal data.',
 
+  headings: { process: 'How we did it, in four phases', compare: 'Before and after', path: 'The path to a procedure', home: 'The Branches home', metrics: 'What changed with the new intranet' },
+
   metricsTitle: 'Results',
   metrics: [
-    { value: '85%', label: 'USER SATISFACTION', caption: 'up from 60% · feb 2026', direction: 'up' },
+    { value: '85%', from: 60, label: 'USER SATISFACTION', caption: 'up from 60% · feb 2026', direction: 'up' },
     { value: '35%', label: 'CLICKS TO CONTENT', caption: 'fewer clicks to reach content', direction: 'down' },
     { value: '~50%', label: 'CONTENT PRUNED', caption: 'deleted or merged before migrating', direction: 'down' },
     { value: '100%', label: 'MIGRATION', caption: 'completed in feb 2026' },

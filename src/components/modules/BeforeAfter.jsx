@@ -1,6 +1,6 @@
 import React from 'react';
-/** Before/after comparison: two bracketed image fields with A/B labels, or content slots (beforeContent/afterContent, e.g. schematics). */
-export function BeforeAfter({ moduleId = 'MOD.04', beforeImage, afterImage, beforeContent, afterContent, beforeLabel = 'BEFORE / REV.A', afterLabel = 'AFTER / REV.B', beforeNote, afterNote, style }) {
+/** Before/after comparison: two bracketed image fields with A/B labels, or content slots (beforeContent/afterContent, e.g. schematics). Optional `kicker` (small lead-in line) + `heading` (local extension). */
+export function BeforeAfter({ moduleId = 'MOD.04', kicker, heading, beforeImage, afterImage, beforeContent, afterContent, beforeLabel = 'BEFORE / REV.A', afterLabel = 'AFTER / REV.B', beforeNote, afterNote, style }) {
   const L = { font: 'var(--text-label)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--ink-400)' };
   const panel = (img, content, label, note, after) => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -25,6 +25,8 @@ export function BeforeAfter({ moduleId = 'MOD.04', beforeImage, afterImage, befo
         <span style={{ ...L, color: 'var(--accent-ink)' }}>{moduleId}</span>
         <span style={L}>COMPARATIVE / A-B</span>
       </div>
+      {kicker && <div style={{ ...L, color: 'var(--accent-ink)', marginBottom: 8 }}>{kicker}</div>}
+      {heading && <h2 style={{ margin: '0 0 24px', font: 'var(--text-h3)', color: 'var(--ink-900)' }}>{heading}</h2>}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 24 }}>
         {panel(beforeImage, beforeContent, beforeLabel, beforeNote, false)}
         {panel(afterImage, afterContent, afterLabel, afterNote, true)}

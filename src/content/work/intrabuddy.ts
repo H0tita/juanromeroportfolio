@@ -138,12 +138,14 @@ const ESP = {
     ],
   },
 
+  headings: { metrics: 'Resultados del piloto' },
+
   metricsTitle: 'Results',
   metrics: [
-    { value: '~60%', label: 'SEARCH TIME', caption: 'menos tiempo por duda', direction: 'down' },
-    { value: '0', label: 'AGENT ERRORS', caption: 'respuestas contrastadas una a una' },
-    { value: '5% → 0%', label: 'CALLS TO COLLEAGUES', caption: 'consultas que acababan en llamada (aprox.)' },
-    { value: '5% → 0%', label: 'CALLS TO QUALITY', caption: 'consultas escaladas a Calidad (aprox.)' },
+    { value: '~60%', label: 'TIEMPO DE BÚSQUEDA', caption: 'menos tiempo por duda', direction: 'down' },
+    { value: '0', label: 'ERRORES DEL AGENTE', caption: 'respuestas contrastadas una a una' },
+    { value: '5% → 0%', label: 'LLAMADAS A COMPAÑEROS', caption: 'consultas que acababan en llamada (aprox.)' },
+    { value: '5% → 0%', label: 'LLAMADAS A CALIDAD', caption: 'consultas escaladas a Calidad (aprox.)' },
   ],
   metricsNote: '~60 búsquedas · 3 gestores · 12 días laborables. Cifras aproximadas. La búsqueda con Intrabuddy se hacía después de la habitual para validarla, como exigía Compliance.',
 
@@ -294,6 +296,8 @@ const ENG: typeof ESP = {
       { label: 'Sample', value: '~60', unit: 'searches', text: 'Each one timed the usual way and with Intrabuddy.' },
     ],
   },
+
+  headings: { metrics: 'Pilot results' },
 
   metricsTitle: 'Results',
   metrics: [
