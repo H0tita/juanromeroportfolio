@@ -68,7 +68,7 @@ export function ImpactCalculator({ ui, lang }) {
           )}
         </span>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', columnGap: 40, padding: '6px 16px 0' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', columnGap: 40, padding: '6px 16px 0' }}>
         <div>{['reduction', 'share', 'conversion'].map(slider)}</div>
         <div aria-live="polite">
           {out('+' + Math.round(extraVisits * 100) + ' %', ui.visitsLabel, ui.visitsCaption)}

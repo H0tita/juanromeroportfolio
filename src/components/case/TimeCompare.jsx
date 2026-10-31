@@ -26,17 +26,18 @@ export function TimeCompare({ data, scaleMax = 240, beforeMin = 120, beforeMax =
   const track = { position: 'relative', height: 28, background: 'var(--bg-0)', border: '1px solid var(--line)' };
   const ticks = Array.from({ length: scaleMax / 60 + 1 }, (_, i) => i);
 
+  const cols = { display: 'grid', gridTemplateColumns: 'minmax(84px, 150px) minmax(0, 1fr) 60px', gap: 12 };
   const row = (label, value, valueColor, bar) => (
-    <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr 72px', gap: 16, alignItems: 'center' }}>
-      <span style={{ ...L, color: 'var(--ink-600)' }}>{label}</span>
+    <div className="jr-time-grid" style={{ ...cols, alignItems: 'center' }}>
+      <span className="jr-time-label" style={{ ...L, color: 'var(--ink-600)' }}>{label}</span>
       {bar}
       <span style={{ font: '700 18px/1 var(--font-mono)', color: valueColor, textAlign: 'right' }}>{value}</span>
     </div>
   );
 
   return (
-    <div ref={ref} role="img" aria-label={data.aria} style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto', gap: 32, alignItems: 'center', padding: '24px 20px', background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 14, minWidth: 0 }}>
+    <div ref={ref} role="img" aria-label={data.aria} style={{ display: 'flex', flexWrap: 'wrap', gap: '24px 32px', alignItems: 'center', padding: '24px 20px', background: 'var(--bg-1)', border: '1px solid var(--line)' }}>
+      <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: 14, minWidth: 0 }}>
         {row(data.before, data.beforeValue, 'var(--ink-600)', (
           <div style={track}>
             <span style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: shown ? pct(beforeMax) : 0, transition: grow(0), background: 'repeating-linear-gradient(45deg, var(--line-strong) 0 4px, transparent 4px 9px)' }} />
@@ -48,11 +49,11 @@ export function TimeCompare({ data, scaleMax = 240, beforeMin = 120, beforeMax =
             <span style={{ position: 'absolute', top: 0, bottom: 0, left: 0, minWidth: shown ? 3 : 0, width: shown ? pct(after) : 0, transition: grow(1), background: 'var(--accent)' }} />
           </div>
         ))}
-        <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr 72px', gap: 16 }}>
-          <span />
+        <div className="jr-time-grid" style={cols}>
+          <span className="jr-time-spacer" />
           <div style={{ position: 'relative', height: 16 }}>
             {ticks.map((h) => (
-              <span key={h} style={{ ...M, position: 'absolute', left: pct(h * 60), transform: h === 0 ? 'none' : h === ticks.length - 1 ? 'translateX(-100%)' : 'translateX(-50%)', color: 'var(--ink-400)', borderLeft: h === ticks.length - 1 ? 'none' : '1px solid var(--line)', borderRight: h === ticks.length - 1 ? '1px solid var(--line)' : 'none', padding: '0 4px', textTransform: 'none', whiteSpace: 'nowrap' }}>{h} h</span>
+              <span key={h} className={h % 2 ? 'jr-hide-xs' : undefined} style={{ ...M, position: 'absolute', left: pct(h * 60), transform: h === 0 ? 'none' : h === ticks.length - 1 ? 'translateX(-100%)' : 'translateX(-50%)', color: 'var(--ink-400)', borderLeft: h === ticks.length - 1 ? 'none' : '1px solid var(--line)', borderRight: h === ticks.length - 1 ? '1px solid var(--line)' : 'none', padding: '0 4px', textTransform: 'none', whiteSpace: 'nowrap' }}>{h} h</span>
             ))}
           </div>
           <span />
@@ -66,7 +67,7 @@ export function TimeCompare({ data, scaleMax = 240, beforeMin = 120, beforeMax =
           </span>
         </div>
       </div>
-      <div style={{ textAlign: 'right', paddingLeft: 24, borderLeft: '1px solid var(--line)' }}>
+      <div className="jr-time-factor" style={{ flex: '0 0 auto', textAlign: 'right', paddingLeft: 24, borderLeft: '1px solid var(--line)' }}>
         <div style={{ font: '700 clamp(36px, 4.5vw, 56px)/1 var(--font-mono)', color: 'var(--accent-ink)', opacity: shown ? 1 : 0, transition: animate ? 'opacity 0.6s ease 1.6s' : 'none' }}>{data.factor}</div>
         <div style={{ ...L, color: 'var(--ink-600)', marginTop: 8 }}>{data.factorCaption}</div>
       </div>

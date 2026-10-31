@@ -60,6 +60,16 @@ Local-only (not in the DS):
   `case/TeamTree` (team org chart).
 - `lib/useLang` (ESP|ENG shared across pages via localStorage), `lib/nav` (nav label → section).
 
+## Responsive approach (mobile adaptation, 2026-10-31)
+Components use inline styles, so responsiveness comes from two layers:
+1. **Intrinsic layout** (preferred): `--page-margin` switches 64 → 40 → 20 px in `global.css`
+   (DS tokens); grids use `repeat(auto-fit, minmax(min(100%, Npx), 1fr))`; flex rows wrap.
+2. **Class + media query** only for structural swaps, in `global.css`: `.jr-only-desktop`,
+   `.jr-only-mobile` (breakpoint 768), `.jr-hide-xs` (480), and the scoped `.jr-time-*` rules
+   for `TimeCompare`. These are the only `!important` rules allowed (to beat inline styles).
+Structural swaps: Navbar → MENU toggle + overlay panel; `TeamTree` → indented list;
+`UsabilityTable` → stacked cards. Form fields are 16px on phones (iOS zoom).
+
 ## Pending — pull when porting (React ESM, reuse via @astrojs/react)
 Each remote component has `.jsx` + `.d.ts` (types) + `.prompt.md` (usage).
 

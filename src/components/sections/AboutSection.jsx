@@ -16,7 +16,7 @@ const BRACKETS = [
 export function AboutSection({ t, L }) {
   return (
     <section id="about" data-screen-label="About Me" style={{ padding: '72px var(--page-margin, 64px) 88px', borderTop: '1px solid var(--line-strong)' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 32 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 16px', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 32 }}>
         <span style={{ ...L, color: 'var(--accent-ink)' }}>JR.ABOUT — PROFILE</span>
         <span style={L}>ID.VERIFIED / MADRID, ES</span>
       </div>
@@ -30,7 +30,7 @@ export function AboutSection({ t, L }) {
             <span style={L}>FIG.00</span><span style={L}>REC.PROFILE</span>
           </div>
         </div>
-        <div style={{ flex: '1 1 480px', minWidth: 320 }}>
+        <div style={{ flex: '1 1 480px', minWidth: 'min(100%, 320px)' }}>
           <h2 style={{ margin: 0, font: 'var(--text-h2)' }}>{t.aboutTitle}</h2>
           <div style={{ ...L, color: 'var(--accent-ink)', marginTop: 12 }}>{t.aboutRole}</div>
           <p style={{ margin: '18px 0 0', font: 'var(--text-body-lg)', color: 'var(--ink-600)', maxWidth: '58ch' }}>{t.aboutBio}</p>
@@ -40,7 +40,7 @@ export function AboutSection({ t, L }) {
         <span style={{ ...L, color: 'var(--accent-ink)' }}>JR.ABOUT — {t.expLabel}</span>
         <span style={L}>03 REC</span>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 24 }}>
         {t.exp.map((e, i) => (
           <div key={i} style={{ background: 'var(--bg-1)', border: '1px solid var(--line)', padding: 24, display: 'flex', flexDirection: 'column', gap: 14 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>

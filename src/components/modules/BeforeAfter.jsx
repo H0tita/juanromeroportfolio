@@ -4,7 +4,7 @@ export function BeforeAfter({ moduleId = 'MOD.04', beforeImage, afterImage, befo
   const L = { font: 'var(--text-label)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--ink-400)' };
   const panel = (img, content, label, note, after) => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 16px', justifyContent: 'space-between', marginBottom: 8 }}>
         <span style={{ ...L, color: after ? 'var(--accent-ink)' : 'var(--ink-400)' }}>{label}</span>
         <span style={{ width: 8, height: 8, background: after ? 'var(--status-active)' : 'var(--status-off)' }} />
       </div>
@@ -21,11 +21,11 @@ export function BeforeAfter({ moduleId = 'MOD.04', beforeImage, afterImage, befo
   );
   return (
     <section style={{ padding: '32px 0', borderTop: '1px solid var(--line-strong)', ...style }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 16px', justifyContent: 'space-between', marginBottom: 20 }}>
         <span style={{ ...L, color: 'var(--accent-ink)' }}>{moduleId}</span>
         <span style={L}>COMPARATIVE / A-B</span>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 24 }}>
         {panel(beforeImage, beforeContent, beforeLabel, beforeNote, false)}
         {panel(afterImage, afterContent, afterLabel, afterNote, true)}
       </div>

@@ -70,8 +70,38 @@ export function TeamTree({ team }) {
     </>
   ));
 
+  // Narrow screens: the same hierarchy as an indented list (two-column branches get too thin).
+  const flat = [
+    { node: team.manager, level: 0 },
+    { node: team.mate, level: 1 },
+    { node: team.self, level: 1, me: true },
+    ...team.coordinators.flatMap((c) => [
+      { node: c, level: 2 },
+      ...Array.from({ length: c.managers }, () => ({ node: team.gestor, level: 3 })),
+    ]),
+  ];
+  const list = (
+    <div className="jr-only-mobile" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      {flat.map((f, i) => (
+        <div key={i} style={{ display: 'flex', alignItems: 'stretch', paddingLeft: Math.max(f.level - 1, 0) * 16 }}>
+          {f.level > 0 && (
+            <span aria-hidden="true" style={{ flex: 'none', width: 16, position: 'relative' }}>
+              <span style={{ position: 'absolute', left: 4, top: -8, height: 'calc(50% + 8px)', width: 2, background: RAIL }} />
+              <span style={{ position: 'absolute', left: 4, top: '50%', width: 10, height: 2, background: RAIL }} />
+            </span>
+          )}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <Node node={f.node} accent={f.me} badge={f.me ? team.me : undefined} compact={f.level === 3} fill />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
   return (
-    <div role="group" aria-label={team.aria} style={{ maxWidth: 760 }}>
+    <div role="group" aria-label={team.aria}>
+      {list}
+      <div className="jr-only-desktop" style={{ maxWidth: 760 }}>
       <div style={{ width: 'calc(50% - 8px)', margin: '0 auto' }}><Node node={team.manager} /></div>
       <Fork />
       <div style={pair}>
@@ -87,6 +117,7 @@ export function TeamTree({ team }) {
             {gestores(c.managers)}
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

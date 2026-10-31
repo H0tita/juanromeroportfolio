@@ -21,7 +21,7 @@ export function ProblemStatement({ moduleId = 'MOD.01', label = 'PROBLEM STATEME
   );
   return (
     <section style={{ padding: '32px 0', borderTop: '1px solid var(--line-strong)', ...style }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 16px', justifyContent: 'space-between', marginBottom: 20 }}>
         <span style={{ ...L, color: 'var(--accent-ink)' }}>{moduleId}</span>
         <span style={L}>{label}</span>
       </div>

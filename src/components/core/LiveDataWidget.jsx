@@ -25,7 +25,7 @@ export function LiveDataWidget({ city = 'Madrid, Spain', lat = 40.4168, lon = -3
         <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="2.5" fill="var(--accent)" /><g stroke="var(--accent)" strokeWidth="1">{[0,45,90,135,180,225,270,315].map(a => <line key={a} x1="6" y1="0.5" x2="6" y2="2" transform={'rotate(' + a + ' 6 6)'} />)}</g></svg>
         {temp === null ? '--' : temp + '°C'}
       </span>}
-      {showClock && <span style={{ ...item, color: dim }}>{time}</span>}
+      {showClock && <span className="jr-hide-xs" style={{ ...item, color: dim }}>{time}</span>}
     </div>
   );
 }

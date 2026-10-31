@@ -147,7 +147,7 @@ export function SheetFormMap({ data }) {
 
   return (
     <div>
-      <div ref={wrap} style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', columnGap: 72, rowGap: 24, alignItems: 'start' }}>
+      <div ref={wrap} style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', columnGap: 72, rowGap: 24, alignItems: 'start' }}>
         <div>
           <div style={{ ...LBL, color: 'var(--ink-400)', marginBottom: 8 }}>{data.sheetLabel}</div>
           {sheet}

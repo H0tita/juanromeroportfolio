@@ -4,11 +4,11 @@ export function ProcessTimeline({ moduleId = 'MOD.02', phases = [], activeIndex 
   const L = { font: 'var(--text-label)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--ink-400)' };
   return (
     <section style={{ padding: '32px 0', borderTop: '1px solid var(--line-strong)', ...style }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 24 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 16px', justifyContent: 'space-between', marginBottom: 24 }}>
         <span style={{ ...L, color: 'var(--accent-ink)' }}>{moduleId}</span>
         <span style={L}>PROCESS / {phases.length} PHASES</span>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(' + Math.max(phases.length, 1) + ', 1fr)', gap: 0 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', rowGap: 28 }}>
         {phases.map((p, i) => {
           const on = i <= activeIndex || activeIndex === -1;
           return (

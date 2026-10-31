@@ -25,7 +25,7 @@ export function ProjectCard({ index = '01', title = 'Project Title', excerpt = '
         <span style={{ position: 'absolute', top: 8, right: 12, font: 'var(--text-data-lg)', color: 'rgba(241,247,244,0.9)' }}>{index}</span>
       </div>
       <div style={{ padding: '18px 20px 20px' }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 12 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', justifyContent: 'space-between', gap: '6px 12px' }}>
           <h3 style={{ margin: 0, font: 'var(--text-h4)' }}>{title}</h3>
           <span style={{ font: 'var(--text-label)', letterSpacing: 'var(--tracking-label)', color: hover ? 'var(--accent-ink)' : 'var(--ink-400)', whiteSpace: 'nowrap', transition: 'color var(--dur-fast)' }}>{lang === 'ESP' ? 'VER PROYECTO' : 'VIEW PROJECT'} {'↗'}</span>
         </div>

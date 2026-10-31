@@ -4,7 +4,7 @@ export function ModuleSection({ moduleId, label, heading, intro, children, style
   const L = { font: 'var(--text-label)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--ink-400)' };
   return (
     <section style={{ padding: '32px 0', borderTop: '1px solid var(--line-strong)', ...style }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 16px', justifyContent: 'space-between', marginBottom: 20 }}>
         <span style={{ ...L, color: 'var(--accent-ink)' }}>{moduleId}</span>
         <span style={L}>{label}</span>
       </div>

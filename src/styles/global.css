@@ -9,6 +9,49 @@
 @import './tokens/spacing.css';
 @import './tokens/effects.css';
 
+/* Responsive page margin — the DS defines 64 / 40 / 20 px for >=1440 / 1024-1439 / <768.
+ * Components read var(--page-margin), so the whole layout follows these breakpoints. */
+@media (max-width: 1439px) {
+  :root { --page-margin: var(--page-margin-md); }
+}
+@media (max-width: 767px) {
+  :root { --page-margin: var(--page-margin-sm); }
+}
+
+/* Visibility utilities. Components use inline styles, which media queries cannot
+ * override without !important; these classes are the only place that is allowed. */
+@media (max-width: 767px) {
+  .jr-only-desktop { display: none !important; }
+}
+@media (min-width: 768px) {
+  .jr-only-mobile { display: none !important; }
+}
+/* iOS Safari zooms into any focused field under 16px: keep form fields at 16px on phones. */
+@media (max-width: 767px) {
+  input, textarea, select { font-size: 16px !important; }
+}
+@media (max-width: 479px) {
+  .jr-hide-xs { display: none !important; }
+}
+
+/* TimeCompare (case study): on narrow screens each label sits above its bar, and the
+ * factor block drops below the bars with a top rule instead of a side rule. */
+@media (max-width: 479px) {
+  .jr-time-grid { grid-template-columns: minmax(0, 1fr) 60px !important; }
+  .jr-time-label { grid-column: 1 / -1; }
+  .jr-time-spacer { display: none !important; }
+}
+@media (max-width: 599px) {
+  .jr-time-factor {
+    flex: 1 1 100% !important;
+    text-align: left !important;
+    border-left: none !important;
+    padding-left: 0 !important;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+}
+
 *,
 *::before,
 *::after {

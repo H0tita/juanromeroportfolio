@@ -170,7 +170,7 @@ export function BudgetSimulator({ ui, lang }) {
     const on = works[k];
     return (
       <div key={k} style={{ border: '1px solid ' + (on ? 'var(--accent)' : 'var(--line)'), background: on ? 'var(--bg-2)' : 'transparent', marginBottom: 8 }}>
-        <label style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', cursor: 'pointer' }}>
+        <label style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '4px 10px', padding: '10px 12px', cursor: 'pointer' }}>
           <input type="checkbox" checked={on} onChange={(e) => { start(); setWorks((w) => ({ ...w, [k]: e.target.checked })); }} style={{ width: 16, height: 16, accentColor: 'var(--accent-ink)' }} />
           <span style={{ font: '500 14px/1.3 var(--font-sans)', color: 'var(--ink-900)' }}>{ui.works[k]}</span>
           <span style={{ ...M, color: 'var(--ink-400)', marginLeft: 'auto', textAlign: 'right' }}>{ui.workHints[k]}</span>

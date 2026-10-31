@@ -122,7 +122,7 @@ export function SearchRace({ data, ratio = 0.4 }) {
           {started ? data.replay : data.run} {'→'}
         </button>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 16 }}>
         {lane(data.withoutTitle, data.withoutSub, false, usual, t / TOTAL, done, data.found)}
         {lane(data.withTitle, data.withSub, true, agent, Math.min(t, AGENT) / TOTAL, agentDone, data.answered)}
       </div>

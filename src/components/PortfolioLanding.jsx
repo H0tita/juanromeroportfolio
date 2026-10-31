@@ -112,23 +112,23 @@ export default function PortfolioLanding() {
           </div>
           <h1 style={{ margin: 0, font: 'var(--text-h1)' }}>{t.title}</h1>
           <p style={{ margin: '28px 0 0', font: 'var(--text-body-lg)', color: 'var(--ink-600)', maxWidth: '54ch' }}>{t.intro}</p>
-          <div style={{ display: 'flex', gap: 14, marginTop: 40 }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 40 }}>
             <Button variant="primary" arrow size="lg" onClick={() => scrollTo('work')}>{t.cta}</Button>
             <Button variant="secondary" size="lg" onClick={() => scrollTo('contact')}>{t.cta2}</Button>
           </div>
-          <div style={{ display: 'flex', gap: 28, marginTop: 56, paddingTop: 20, borderTop: '1px solid var(--line)' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 28px', marginTop: 56, paddingTop: 20, borderTop: '1px solid var(--line)' }}>
             <CoordLabel label="UX" value=">2 YRS" /><CoordLabel label="tech" value="cODING / AI" /><CoordLabel label="BIZ" value="MANAGEMENT" />
           </div>
         </div>
       </section>
       <section id="work" data-screen-label="My Work" style={{ padding: '72px var(--page-margin, 64px) 96px', borderTop: '1px solid var(--line-strong)', background: 'var(--bg-1)' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 16px', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
           <span style={{ ...L, color: 'var(--accent-ink)' }}>JR.WORK — INDEX</span>
           <span style={L}>03 REC / ALL SYSTEMS NOMINAL</span>
         </div>
         <h2 style={{ margin: 0, font: 'var(--text-h2)' }}>{t.workTitle}</h2>
         <p style={{ margin: '16px 0 0', font: 'var(--text-body)', color: 'var(--ink-600)', maxWidth: '60ch' }}>{t.workIntro}</p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24, marginTop: 40 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: 24, marginTop: 40 }}>
           <ProjectCard index="01" title={t.p1.title} excerpt={t.p1.excerpt} metric={t.p1.metric} categories={['UX', 'Info Architecture', 'Banking']} meta="JR.WORK.001" href="/work/ing" lang={lang} />
           <ProjectCard index="02" title={t.p2.title} excerpt={t.p2.excerpt} metric={t.p2.metric} categories={['UX/UI', 'Service Design', 'SaaS']} meta="JR.WORK.002" href="/work/automatic-budgeting-piscilona-sl" lang={lang} />
           <ProjectCard index="03" title={t.p3.title} excerpt={t.p3.excerpt} metric={t.p3.metric} categories={['AI', 'Prompting', 'Data']} meta="JR.WORK.003" href="/work/intrabuddy" lang={lang} />

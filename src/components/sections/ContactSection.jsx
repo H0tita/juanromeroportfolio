@@ -14,20 +14,20 @@ export function ContactSection({ t, L }) {
   const submit = (e) => { e.preventDefault(); setSent(true); };
   return (
     <section id="contact" data-screen-label="Contact" style={{ background: 'var(--bg-dark)', padding: '72px var(--page-margin, 64px) 88px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 32 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 16px', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 32 }}>
         <span style={{ ...L, color: 'var(--accent)' }}>JR.CONTACT — CHANNEL</span>
         <span style={{ ...Li, display: 'inline-flex', alignItems: 'center', gap: 8 }}><span style={{ width: 8, height: 8, background: 'var(--status-active)', animation: 'jr-blink 1.2s steps(2,start) infinite' }} />CHANNEL OPEN</span>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(280px, 1fr) minmax(320px, 1.4fr)', gap: 56, alignItems: 'start' }}>
-        <div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 56, alignItems: 'flex-start' }}>
+        <div style={{ flex: '1 1 280px', minWidth: 0 }}>
           <h2 style={{ margin: 0, font: 'var(--text-h2)', color: 'var(--ink-inverse)' }}>{t.contactTitle}</h2>
           <p style={{ margin: '20px 0 0', font: 'var(--text-body)', color: 'var(--ink-inverse-dim)', maxWidth: '42ch' }}>{t.contactIntro}</p>
           <p style={{ margin: '14px 0 0', font: 'var(--text-body)', color: 'var(--ink-inverse-dim)' }}>{t.contactAlt}<br /><a href="mailto:hello@juanromeroportfolio.com" style={{ color: 'var(--accent)', fontFamily: 'var(--font-mono)', fontSize: 15 }}>hello@juanromeroportfolio.com</a></p>
-          <div style={{ display: 'flex', gap: 24, marginTop: 40, paddingTop: 20, borderTop: '1px solid rgba(241,247,244,0.18)' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 24px', marginTop: 40, paddingTop: 20, borderTop: '1px solid rgba(241,247,244,0.18)' }}>
             <span style={Li}>LAT 40.4168</span><span style={Li}>LON -3.7038</span><span style={Li}>UTC+2</span>
           </div>
         </div>
-        <div style={{ border: '1px solid rgba(241,247,244,0.25)', padding: 24 }}>
+        <div style={{ flex: '1.4 1 320px', minWidth: 0, border: '1px solid rgba(241,247,244,0.25)', padding: 24 }}>
           {sent ? (
             <div style={{ padding: '48px 24px', textAlign: 'center' }}>
               <div style={{ ...L, color: 'var(--accent)', marginBottom: 12 }}>TRANSMISSION SENT</div>
@@ -35,7 +35,7 @@ export function ContactSection({ t, L }) {
             </div>
           ) : (
             <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: 14 }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                   <label style={Li}>{t.fEmail}</label>
                   <input required type="email" style={field} placeholder="you@company.com" />
