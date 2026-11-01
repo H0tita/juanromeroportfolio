@@ -28,6 +28,7 @@ const COPY = {
     p1: { title: 'Intranet ING', excerpt: 'Rediseño y migración a SharePoint Online', metric: { value: '60% → 85%', label: 'satisfacción' } },
     p2: { title: 'Presupuestador Piscilona', excerpt: 'Ficha técnica + web app', metric: { value: '2–4 h → 3 min', label: 'por presupuesto' } },
     p3: { title: 'Intrabuddy · ING', excerpt: 'Agente de IA en la intranet de ING', metric: { value: '~60%', label: 'menos tiempo de búsqueda' } },
+    p4: { title: 'Digisfera · ING', excerpt: 'Marca e insignias para digitalizar oficinas', metric: { value: '3 × 2', label: 'insignias en pegatina' } },
     aboutTitle: 'Juan Romero',
     aboutRole: 'UX Product Designer | Product + Tech + Business | AI Enthusiastic',
     aboutBio: 'Me considero un perfil híbrido capaz de desarrollar proyectos End To End, haciendo de puente entre las ramas de Producto, Tech y Negocio.',
@@ -55,6 +56,7 @@ const COPY = {
     p1: { title: 'ING Intranet', excerpt: 'Redesign and migration to SharePoint Online', metric: { value: '60% → 85%', label: 'satisfaction' } },
     p2: { title: 'Piscilona Budgeting Tool', excerpt: 'Data sheet + web app', metric: { value: '2–4 h → 3 min', label: 'per quote' } },
     p3: { title: 'Intrabuddy · ING', excerpt: 'AI agent in the ING intranet', metric: { value: '~60%', label: 'less search time' } },
+    p4: { title: 'Digisfera · ING', excerpt: 'Brand and badges to digitalise branches', metric: { value: '3 × 2', label: 'sticker badges' } },
     aboutTitle: 'Juan Romero',
     aboutRole: 'UX Product Designer | Product + Tech + Business | AI Enthusiastic',
     aboutBio: 'I am a hybrid profile able to run End To End projects, bridging Product, Tech and Business.',
@@ -128,14 +130,15 @@ export default function PortfolioLanding() {
       <section id="work" data-screen-label="My Work" style={{ padding: '72px var(--page-margin, 64px) 96px', borderTop: '1px solid var(--line-strong)', background: 'var(--bg-1)' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 16px', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
           <span style={{ ...L, color: 'var(--accent-ink)' }}>JR.WORK — INDEX</span>
-          <span style={L}>03 REC / ALL SYSTEMS NOMINAL</span>
+          <span style={L}>04 REC / ALL SYSTEMS NOMINAL</span>
         </div>
         <h2 style={{ margin: 0, font: 'var(--text-h2)' }}>{t.workTitle}</h2>
         <p style={{ margin: '16px 0 0', font: 'var(--text-body)', color: 'var(--ink-600)', maxWidth: '60ch' }}>{t.workIntro}</p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: 24, marginTop: 40 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, max(320px, calc(50% - 12px))), 1fr))', gap: 24, marginTop: 40 }}>
           <ProjectCard index="01" title={t.p3.title} excerpt={t.p3.excerpt} metric={t.p3.metric} categories={['AI', 'Prompting', 'Data']} meta="JR.WORK.001" image="/covers/intrabuddy.jpg" href="/work/intrabuddy" lang={lang} />
           <ProjectCard index="02" title={t.p1.title} excerpt={t.p1.excerpt} metric={t.p1.metric} categories={['UX', 'Info Architecture', 'Banking']} meta="JR.WORK.002" image="/covers/ing.jpg" href="/work/ing" lang={lang} />
           <ProjectCard index="03" title={t.p2.title} excerpt={t.p2.excerpt} metric={t.p2.metric} categories={['UX/UI', 'Service Design', 'SaaS']} meta="JR.WORK.003" image="/covers/piscilona.jpg" href="/work/automatic-budgeting-piscilona-sl" lang={lang} />
+          <ProjectCard index="04" title={t.p4.title} excerpt={t.p4.excerpt} metric={t.p4.metric} categories={['Branding', 'Illustration', 'Print']} meta="JR.WORK.004" image="/covers/digisfera.jpg" href="/work/digisfera" lang={lang} />
         </div>
       </section>
       <AboutSection t={t} L={L} />

@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import DigisferaCase from '../../components/cases/DigisferaCase.jsx';
+import { DIGISFERA_CASE } from '../../content/work/digisfera';
+---
+
+<Base title={DIGISFERA_CASE.ESP.pageTitle} description={DIGISFERA_CASE.ESP.intro} image="/covers/digisfera.jpg">
+  <DigisferaCase client:load />
+</Base>
