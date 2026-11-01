@@ -107,7 +107,7 @@ export default function PortfolioLanding() {
     <div>
       <Navbar items={NAV_ITEMS} active={active} lang={lang} onLangChange={setLang} onNavigate={navigate} scrolled={scrolled} logoSrc="/logos/logo-color.svg" city="Madrid, Spain" />
       <section data-screen-label="Hero" style={{ position: 'relative', padding: '96px var(--page-margin, 64px) 120px', overflow: 'hidden' }}>
-        <ReactiveDotField fade="left" gap={22} style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '46%' }} />
+        <ReactiveDotField fade="left" gap={22} style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '62%' }} />
         <div style={{ position: 'absolute', top: 28, right: 'var(--page-margin, 64px)', display: 'flex', gap: 24, alignItems: 'center' }}>
           <Crosshair variant="plus" size={16} />
           <CoordLabel label="LAT" value="40.4168" /><CoordLabel label="LON" value="-3.7038" />
