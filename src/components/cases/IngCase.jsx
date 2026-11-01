@@ -4,6 +4,8 @@ import { Body } from '../case/Body.jsx';
 import { HomeSchematic } from '../case/HomeSchematic.jsx';
 import { PathSchematic } from '../case/PathSchematic.jsx';
 import { KeyFactCards } from '../case/KeyFactCards.jsx';
+import { RoleGantt } from '../case/RoleGantt.jsx';
+import { ListColumns } from '../case/ListColumns.jsx';
 import { ProblemStatement } from '../modules/ProblemStatement.jsx';
 import { ProcessTimeline } from '../modules/ProcessTimeline.jsx';
 import { BeforeAfter } from '../modules/BeforeAfter.jsx';
@@ -16,11 +18,13 @@ export default function IngCase() {
     <CaseLayout content={ING_CASE}>
       {(t) => (
         <>
-          <ProblemStatement moduleId="MOD.01" heading={t.problem.heading} highlight={t.problem.highlight}>
+          <ProblemStatement moduleId="MOD.01" heading={t.problem.heading} highlight={t.problem.highlight}
+            extra={<ListColumns columns={t.problem.columns} />}>
             <Body items={t.problem.body} />
           </ProblemStatement>
 
-          <ProblemStatement moduleId="MOD.02" label="ROLE / SCOPE" heading={t.role.heading} highlight={t.role.highlight}>
+          <ProblemStatement moduleId="MOD.02" label="ROLE / TIMELINE" heading={t.role.heading} highlight={t.role.highlight}
+            extra={<RoleGantt data={t.role.gantt} />}>
             <Body items={t.role.body} />
           </ProblemStatement>
 

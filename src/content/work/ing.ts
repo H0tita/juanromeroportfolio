@@ -36,9 +36,11 @@ const ESP = {
     heading: 'Nadie encontraba nada, y lo que encontraba podía estar caducado',
     body: [
       'La intranet era la herramienta de trabajo diaria de menos de 1.000 gestores y coordinadores de oficinas y otros canales. Con los años se había convertido en un cajón de sastre: arquitectura confusa, contenido enterrado en muchos niveles, páginas duplicadas o desactualizadas sin responsable y un diseño distinto en cada área.',
-      'El resultado: tiempo perdido buscando, consultas constantes a otros equipos y tan poca confianza que la gente acababa tirando de correo, chats y documentos propios.',
-      'El objetivo: encontrar la información más rápido, una única fuente de verdad y una intranet visualmente coherente.',
     ] as Paragraph[],
+    columns: [
+      { label: 'IMPACT', title: 'El resultado', tone: 'muted', items: ['Tiempo perdido buscando', 'Consultas constantes a otros equipos', 'Poca confianza en el contenido', 'Canales paralelos: correo, chats y documentos propios'] },
+      { label: 'GOAL', title: 'El objetivo', tone: 'accent', items: ['Encontrar la información más rápido', 'Una única fuente de verdad', 'Una intranet visualmente coherente'] },
+    ],
     highlight:
       'En un banco, un procedimiento desactualizado no es solo un problema de UX: es riesgo operativo y de cumplimiento normativo.',
   },
@@ -47,11 +49,26 @@ const ESP = {
     heading: 'Un año de prácticas, cada vez más responsabilidad',
     body: [
       'Entré en ING en prácticas, en un equipo de seis: manager, tres Product Owners, responsable de diseño y yo.',
-      { lead: 'Julio — noviembre 2025.', text: 'Product Designer de las verticales de Financiación y Clientes.' },
-      { lead: 'Noviembre 2025 — febrero 2026.', text: 'Asumí además las funciones de Product Owner de Canales —oficinas, Contact Center, chat, Defensor del Cliente y redes sociales—, uno de los bloques críticos de la migración, sin dejar de apoyar como Product Designer al resto de verticales.' },
+      'Empecé como Product Designer de Financiación y Clientes. Desde finales de noviembre asumí además las funciones de Product Owner de Canales —ocho canales, entre ellos oficinas, Contact Center y chat—, uno de los bloques críticos de la migración.',
     ] as Paragraph[],
     highlight:
-      'Mi trabajo con stakeholders: presentar cada propuesta de rediseño, defenderla y llevarla hasta SharePoint Online. También contribuí a los componentes y estilos del design system y colaboré en el copy.',
+      'Mi trabajo con stakeholders: investigar con ellos sus necesidades, presentar cada propuesta de rediseño, defenderla y llevarla hasta SharePoint Online. También contribuí a los componentes y estilos del design system y colaboré en el copy.',
+    gantt: {
+      aria: 'Cronología de mi rol en ING, de julio de 2025 a febrero de 2026.',
+      months: ['JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC', 'ENE', 'FEB'],
+      years: { 0: '2025', 6: '2026' },
+      rows: [
+        { title: 'Product Designer', sub: 'Financiación', start: 0, end: 4.8, tone: 'ink', period: 'JUL — NOV 2025' },
+        { title: 'Product Designer', sub: 'Clientes', start: 0, end: 4.8, tone: 'ink', period: 'JUL — NOV 2025' },
+        { title: 'Product Owner + Product Designer', sub: 'Canales', start: 4.75, end: 8, tone: 'accent', period: 'NOV 2025 — FEB 2026' },
+        { title: 'Product Designer', sub: 'Resto de verticales', start: 4.75, end: 8, tone: 'outline', period: 'NOV 2025 — FEB 2026' },
+      ],
+      milestone: 'Migración completada',
+      groups: [
+        { start: 0, end: 4.8, items: ['Research con stakeholders', 'Propuestas de rediseño', 'Componentes del design system'] },
+        { start: 4.75, end: 8, items: ['8 canales: oficinas, Contact Center, chat…', 'Funciones de Product Owner', 'Apoyo de diseño al resto de verticales'] },
+      ],
+    },
   },
 
   phases: [
@@ -148,8 +165,10 @@ const ENG: typeof ESP = {
     heading: 'Nobody could find anything — and what they found might be outdated',
     body: [
       'The intranet was the everyday work tool of fewer than 1,000 branch and channel managers and coordinators. Over the years it had become a catch-all: confusing structure, content buried many levels deep, duplicated or outdated pages with no owner, and a different design in every area.',
-      'The result: time wasted searching, constant questions to other teams, and so little trust that people fell back on email, chats and their own documents.',
-      'The goal: find information faster, a single source of truth, and a visually consistent intranet.',
+    ],
+    columns: [
+      { label: 'IMPACT', title: 'The result', tone: 'muted', items: ['Time wasted searching', 'Constant questions to other teams', 'Little trust in the content', 'Parallel channels: email, chats and personal documents'] },
+      { label: 'GOAL', title: 'The goal', tone: 'accent', items: ['Find information faster', 'A single source of truth', 'A visually consistent intranet'] },
     ],
     highlight:
       'In a bank, an outdated procedure is not just a UX problem: it is operational and compliance risk.',
@@ -159,11 +178,26 @@ const ENG: typeof ESP = {
     heading: 'One year as an intern, with growing responsibility',
     body: [
       'I joined ING as an intern, in a team of six: manager, three Product Owners, design lead and me.',
-      { lead: 'July — November 2025.', text: 'Product Designer for the Financing and Customers verticals.' },
-      { lead: 'November 2025 — February 2026.', text: 'I also took on the Product Owner responsibilities for Channels — branches, Contact Center, chat, Customer Ombudsman and social media — one of the critical blocks of the migration, while still supporting the other verticals as Product Designer.' },
+      'I started as Product Designer for Financing and Customers. From late November I also took on the Product Owner responsibilities for Channels — eight of them, including branches, Contact Center and chat — one of the critical blocks of the migration.',
     ],
     highlight:
-      'My work with stakeholders: present each redesign proposal, defend it and carry it all the way into SharePoint Online. I also contributed components and styles to the design system and collaborated on the copy.',
+      'My work with stakeholders: research their needs with them, present each redesign proposal, defend it and carry it all the way into SharePoint Online. I also contributed components and styles to the design system and collaborated on the copy.',
+    gantt: {
+      aria: 'Timeline of my role at ING, from July 2025 to February 2026.',
+      months: ['JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC', 'JAN', 'FEB'],
+      years: { 0: '2025', 6: '2026' },
+      rows: [
+        { title: 'Product Designer', sub: 'Financing', start: 0, end: 4.8, tone: 'ink', period: 'JUL — NOV 2025' },
+        { title: 'Product Designer', sub: 'Customers', start: 0, end: 4.8, tone: 'ink', period: 'JUL — NOV 2025' },
+        { title: 'Product Owner + Product Designer', sub: 'Channels', start: 4.75, end: 8, tone: 'accent', period: 'NOV 2025 — FEB 2026' },
+        { title: 'Product Designer', sub: 'Other verticals', start: 4.75, end: 8, tone: 'outline', period: 'NOV 2025 — FEB 2026' },
+      ],
+      milestone: 'Migration completed',
+      groups: [
+        { start: 0, end: 4.8, items: ['Research with stakeholders', 'Redesign proposals', 'Design system components'] },
+        { start: 4.75, end: 8, items: ['8 channels: branches, Contact Center, chat…', 'Product Owner responsibilities', 'Design support to other verticals'] },
+      ],
+    },
   },
 
   phases: [
