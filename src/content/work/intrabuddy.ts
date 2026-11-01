@@ -15,7 +15,7 @@
 type Paragraph = string | { lead: string; text: string };
 
 const shared = {
-  id: 'JR.CASE.003',
+  id: 'JR.CASE.001',
   status: 'APPROVED FOR ROLLOUT',
   slug: 'intrabuddy',
   meta: [

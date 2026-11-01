@@ -15,7 +15,7 @@ export function ProjectCard({ index = '01', title = 'Project Title', excerpt = '
       {bk({ top: -1, left: -1 })}{bk({ top: -1, right: -1 })}{bk({ bottom: -1, left: -1 })}{bk({ bottom: -1, right: -1 })}
       <div style={{ position: 'relative', aspectRatio: '16/10', background: '#8FA69B', overflow: 'hidden' }}>
         {image
-          ? <img src={image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: hover ? 'none' : 'saturate(0.75)', transition: 'filter var(--dur-med) var(--ease-hud)' }} />
+          ? <img src={image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: hover ? 'brightness(0.85)' : 'none', transition: 'filter var(--dur-med) var(--ease-hud)' }} />
           : <div style={{ position: 'absolute', inset: 0, background: 'repeating-linear-gradient(45deg, #93AAA0 0 10px, #8FA69B 10px 20px)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <span style={{ font: 'var(--text-caption)', color: '#F1F7F4', background: 'rgba(14,31,25,0.55)', padding: '4px 10px' }}>project cover — drop shot here</span>
             </div>}

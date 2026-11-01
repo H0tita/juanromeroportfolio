@@ -129,9 +129,9 @@ export default function PortfolioLanding() {
         <h2 style={{ margin: 0, font: 'var(--text-h2)' }}>{t.workTitle}</h2>
         <p style={{ margin: '16px 0 0', font: 'var(--text-body)', color: 'var(--ink-600)', maxWidth: '60ch' }}>{t.workIntro}</p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: 24, marginTop: 40 }}>
-          <ProjectCard index="01" title={t.p1.title} excerpt={t.p1.excerpt} metric={t.p1.metric} categories={['UX', 'Info Architecture', 'Banking']} meta="JR.WORK.001" href="/work/ing" lang={lang} />
-          <ProjectCard index="02" title={t.p2.title} excerpt={t.p2.excerpt} metric={t.p2.metric} categories={['UX/UI', 'Service Design', 'SaaS']} meta="JR.WORK.002" href="/work/automatic-budgeting-piscilona-sl" lang={lang} />
-          <ProjectCard index="03" title={t.p3.title} excerpt={t.p3.excerpt} metric={t.p3.metric} categories={['AI', 'Prompting', 'Data']} meta="JR.WORK.003" href="/work/intrabuddy" lang={lang} />
+          <ProjectCard index="01" title={t.p3.title} excerpt={t.p3.excerpt} metric={t.p3.metric} categories={['AI', 'Prompting', 'Data']} meta="JR.WORK.001" image="/covers/intrabuddy.jpg" href="/work/intrabuddy" lang={lang} />
+          <ProjectCard index="02" title={t.p1.title} excerpt={t.p1.excerpt} metric={t.p1.metric} categories={['UX', 'Info Architecture', 'Banking']} meta="JR.WORK.002" image="/covers/ing.jpg" href="/work/ing" lang={lang} />
+          <ProjectCard index="03" title={t.p2.title} excerpt={t.p2.excerpt} metric={t.p2.metric} categories={['UX/UI', 'Service Design', 'SaaS']} meta="JR.WORK.003" image="/covers/piscilona.jpg" href="/work/automatic-budgeting-piscilona-sl" lang={lang} />
         </div>
       </section>
       <AboutSection t={t} L={L} />

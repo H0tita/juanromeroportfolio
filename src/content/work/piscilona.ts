@@ -13,7 +13,7 @@
 type Paragraph = string | { lead: string; text: string };
 
 const shared = {
-  id: 'JR.CASE.002',
+  id: 'JR.CASE.003',
   status: 'IN PRODUCTION',
   slug: 'automatic-budgeting-piscilona-sl',
   meta: [

@@ -12,7 +12,7 @@
 type Paragraph = string | { lead: string; text: string };
 
 const shared = {
-  id: 'JR.CASE.001',
+  id: 'JR.CASE.002',
   status: 'SHIPPED',
   slug: 'ing',
   meta: [
