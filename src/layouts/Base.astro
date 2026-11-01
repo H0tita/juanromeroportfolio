@@ -9,13 +9,19 @@ interface Props {
   title?: string;
   description?: string;
   lang?: 'es' | 'en';
+  /** Share-preview image (path under public/), 16:10 covers work fine on LinkedIn/WhatsApp. */
+  image?: string;
 }
 
 const {
   title = 'Juan Romero — Product Design',
   description = 'Product designer híbrido — UX, tecnología y negocio. Diseño, valido y construyo flujos complejos de extremo a extremo.',
   lang = 'es',
+  image = '/covers/intrabuddy.jpg',
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image, Astro.site);
 ---
 
 <!doctype html>
@@ -27,6 +33,16 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Juan Romero — Product Design" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="1000" />
+    <meta name="twitter:card" content="summary_large_image" />
     <script is:inline>
       // --sbw = vertical scrollbar width. Full-bleed bands use 100vw, which includes it;
       // subtracting it keeps them exactly as wide as the visible page (no horizontal scroll).

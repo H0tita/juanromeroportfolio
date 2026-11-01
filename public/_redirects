@@ -1,0 +1,3 @@
+# Cloudflare Pages redirects — old Framer URLs that have no page in the new site.
+# (/ , /404 and /work/automatic-budgeting-piscilona-sl keep their URLs.)
+/work/private-qr  /#work  301

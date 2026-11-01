@@ -10,7 +10,7 @@ import { Crosshair } from './hud/Crosshair.jsx';
 import { AboutSection } from './sections/AboutSection.jsx';
 import { ContactSection } from './sections/ContactSection.jsx';
 import { useLang } from '../lib/useLang.js';
-import { NAV_TARGET } from '../lib/nav.js';
+import { NAV_TARGET, NAV_ITEMS } from '../lib/nav.js';
 
 /**
  * Portfolio landing island — ported from the design-system reference
@@ -41,6 +41,8 @@ const COPY = {
     contactIntro: 'Si quieres ponerte en contacto conmigo puedes hacerlo a través de este formulario.',
     contactAlt: 'O directamente mandando un mail a',
     contactSent: 'Mensaje recibido. Te respondo en <48h.',
+    contactSending: 'Enviando…',
+    contactError: 'No se ha podido enviar el mensaje. Escríbeme directamente a',
     fEmail: 'Email', fSubject: 'Asunto', fMessage: 'Mensaje', fSubmit: 'Enviar'
   },
   ENG: {
@@ -66,6 +68,8 @@ const COPY = {
     contactIntro: 'If you want to get in touch you can do it through this form.',
     contactAlt: 'Or directly by email at',
     contactSent: 'Message received. I reply within 48h.',
+    contactSending: 'Sending…',
+    contactError: 'The message couldn’t be sent. Write to me directly at',
     fEmail: 'Email', fSubject: 'Subject', fMessage: 'Message', fSubmit: 'Submit'
   }
 };
@@ -99,7 +103,7 @@ export default function PortfolioLanding() {
   const navigate = (label) => { const id = NAV_TARGET[label]; id && scrollTo(id); };
   return (
     <div>
-      <Navbar active={active} lang={lang} onLangChange={setLang} onNavigate={navigate} scrolled={scrolled} logoSrc="/logos/logo-color.svg" city="Madrid, Spain" />
+      <Navbar items={NAV_ITEMS} active={active} lang={lang} onLangChange={setLang} onNavigate={navigate} scrolled={scrolled} logoSrc="/logos/logo-color.svg" city="Madrid, Spain" />
       <section data-screen-label="Hero" style={{ position: 'relative', padding: '96px var(--page-margin, 64px) 120px', overflow: 'hidden' }}>
         <ReactiveDotField fade="left" gap={22} style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '46%' }} />
         <div style={{ position: 'absolute', top: 28, right: 'var(--page-margin, 64px)', display: 'flex', gap: 24, alignItems: 'center' }}>
@@ -136,7 +140,7 @@ export default function PortfolioLanding() {
       </section>
       <AboutSection t={t} L={L} />
       <ContactSection t={t} L={L} />
-      <Footer logoSrc="/logos/logo-white.svg" email="hello@juanromeroportfolio.com" onNavigate={navigate} />
+      <Footer items={NAV_ITEMS} logoSrc="/logos/logo-white.svg" email="hello@juanromeroportfolio.com" onNavigate={navigate} />
     </div>
   );
 }

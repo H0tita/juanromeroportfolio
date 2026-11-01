@@ -1,0 +1,64 @@
+---
+/**
+ * 404 — static page (no JS) in the HUD language. Bilingual inline (ESP first, ENG below)
+ * because the language choice lives in client-side state the 404 can't rely on.
+ */
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="404 — Juan Romero" description="Página no encontrada · Page not found">
+  <main class="nf">
+    <div class="nf-head">
+      <span class="nf-id">ERR.404</span>
+      <span class="nf-status"><span class="nf-dot"></span>SIGNAL LOST</span>
+    </div>
+    <a class="nf-logo" href="/" aria-label="Home"><img src="/logos/logo-color.svg" alt="JR" /></a>
+    <h1>Esta página no existe</h1>
+    <p class="nf-en">This page doesn’t exist.</p>
+    <p class="nf-body">Puede que el enlace sea antiguo o que la dirección esté mal escrita.<br />The link may be old or the address mistyped.</p>
+    <div class="nf-actions">
+      <a class="nf-btn nf-primary" href="/">Ir al inicio · Home ↗</a>
+      <a class="nf-btn" href="/#work">Ver proyectos · Work</a>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .nf {
+    min-height: 100vh;
+    padding: 64px var(--page-margin, 64px);
+    background-image: radial-gradient(circle, var(--line) 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 960px;
+  }
+  .nf-head {
+    display: flex;
+    gap: 24px;
+    font: var(--text-label);
+    letter-spacing: var(--tracking-label);
+    margin-bottom: 40px;
+  }
+  .nf-id { color: var(--accent-ink); }
+  .nf-status { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-600); }
+  .nf-dot { width: 8px; height: 8px; background: var(--status-alert); }
+  .nf-logo img { height: 32px; display: block; margin-bottom: 32px; }
+  h1 { margin: 0; font: var(--text-h1); color: var(--ink-900); }
+  .nf-en { margin: 12px 0 0; font: var(--text-h4); color: var(--ink-400); }
+  .nf-body { margin: 24px 0 0; font: var(--text-body); color: var(--ink-600); max-width: 52ch; }
+  .nf-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
+  .nf-btn {
+    padding: 16px 24px;
+    font: var(--text-label);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    border: 1px solid var(--ink-900);
+    color: var(--ink-900);
+    background: var(--bg-0);
+  }
+  .nf-btn:hover { background: var(--ink-900); color: var(--ink-inverse); }
+  .nf-primary { background: var(--accent); border-color: var(--accent); color: #0E1F19; }
+  .nf-primary:hover { background: var(--accent-ink); border-color: var(--accent-ink); color: #fff; }
+</style>
