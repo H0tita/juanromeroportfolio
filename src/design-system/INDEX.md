@@ -58,6 +58,9 @@ Local-only (not in the DS):
 - Interactives (Intrabuddy): `case/SearchRace` (without vs with agent, relative time scale),
   `case/ImpactCalculator` (business projection labelled ESTIMATE, formula shown live),
   `case/TeamTree` (team org chart).
+- Hero: `hud/ReactiveDotField` replaces the static `DotField` on the landing — mint halo of
+  lit dots + crosshair with live LAT/LON readout following the pointer; automatic slow sweep
+  on touch devices (paused off-screen, off with prefers-reduced-motion).
 - `lib/useLang` (ESP|ENG shared across pages via localStorage), `lib/nav` (nav label → section).
 
 ## Responsive approach (mobile adaptation, 2026-10-31)
