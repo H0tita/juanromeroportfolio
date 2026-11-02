@@ -3,11 +3,12 @@ import { Navbar } from '../navigation/Navbar.jsx';
 import { Footer } from '../navigation/Footer.jsx';
 import { Button } from '../core/Button.jsx';
 import { CaseHero } from '../modules/CaseHero.jsx';
+import { MoreCases } from '../work/MoreCases.jsx';
 import { useLang } from '../../lib/useLang.js';
 import { NAV_TARGET, NAV_ITEMS } from '../../lib/nav.js';
 
 /**
- * Shared case-study shell: Navbar + back link + CaseHero + closing CTA + Footer.
+ * Shared case-study shell: Navbar + back link + CaseHero + more-cases carousel + closing CTA + Footer.
  * `content` = { shared, ESP, ENG } (see src/content/work/); the case body is a
  * render function `children(t, lang)` so each case composes its own modules.
  */
@@ -32,12 +33,12 @@ export function CaseLayout({ content, children }) {
         <CaseHero id={shared.id} status={shared.status} tag={t.tag} title={t.title} intro={t.intro}
           meta={shared.meta.map((m) => ({ label: m.label, value: m.value[lang] }))} style={{ marginBottom: 48 }} />
         {children(t, lang)}
+        <MoreCases current={shared.slug} lang={lang} />
         <section style={{ marginTop: 64, padding: '32px 0 0', borderTop: '1px solid var(--line-strong)' }}>
           <span style={{ ...L, color: 'var(--accent-ink)' }}>{t.next.label}</span>
           <h2 style={{ margin: '12px 0 0', font: 'var(--text-h2)' }}>{t.next.heading}</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 28 }}>
-            <Button variant="primary" arrow size="lg" onClick={() => go('work')}>{t.next.work}</Button>
-            <Button variant="secondary" size="lg" onClick={() => go('contact')}>{t.next.contact}</Button>
+            <Button variant="primary" arrow size="lg" onClick={() => go('contact')}>{t.next.contact}</Button>
           </div>
         </section>
       </main>

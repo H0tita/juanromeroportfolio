@@ -112,7 +112,7 @@ const ESP = {
 
   headings: { context: 'El reto', process: 'Cómo lo abordé', keys: 'La guía' },
 
-  next: { label: 'NEXT / JR.WORK', heading: '¿Hablamos?', work: 'Ver más proyectos', contact: 'Contacto' },
+  next: { label: 'NEXT / JR.WORK', heading: '¿Hablamos?', contact: 'Contacto' },
 };
 
 const ENG: typeof ESP = {
@@ -193,7 +193,7 @@ const ENG: typeof ESP = {
 
   headings: { context: 'The challenge', process: 'How I approached it', keys: 'The guide' },
 
-  next: { label: 'NEXT / JR.WORK', heading: 'Let’s talk', work: 'More projects', contact: 'Contact' },
+  next: { label: 'NEXT / JR.WORK', heading: 'Let’s talk', contact: 'Contact' },
 };
 
 export const DIGISFERA_CASE = { shared, ESP, ENG, badgeSrc };

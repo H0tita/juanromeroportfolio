@@ -150,7 +150,7 @@ const ESP = {
   metricsNote: 'Satisfacción medida por fases a lo largo de la migración. El resto de cifras son aproximadas.',
   aftermath: 'Tras la migración, el nuevo formato y sus plantillas se adoptaron como estándar para crear las secciones nuevas, y el feedback de usuarios y áreas fue positivo.',
 
-  next: { label: 'NEXT / JR.WORK', heading: '¿Hablamos?', work: 'Ver más proyectos', contact: 'Contacto' },
+  next: { label: 'NEXT / JR.WORK', heading: '¿Hablamos?', contact: 'Contacto' },
 };
 
 const ENG: typeof ESP = {
@@ -279,7 +279,7 @@ const ENG: typeof ESP = {
   metricsNote: 'Satisfaction measured in phases throughout the migration. Other figures are approximate.',
   aftermath: 'After the migration, the new format and its templates became the standard for building new sections, and feedback from users and areas was positive.',
 
-  next: { label: 'NEXT / JR.WORK', heading: 'Let’s talk', work: 'More projects', contact: 'Contact' },
+  next: { label: 'NEXT / JR.WORK', heading: 'Let’s talk', contact: 'Contact' },
 };
 
 export const ING_CASE = { shared, ESP, ENG };
