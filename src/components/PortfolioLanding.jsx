@@ -8,6 +8,7 @@ import { CoordLabel } from './hud/CoordLabel.jsx';
 import { StatusIndicator } from './hud/StatusIndicator.jsx';
 import { Crosshair } from './hud/Crosshair.jsx';
 import { AboutSection } from './sections/AboutSection.jsx';
+import { BrandBookTeaser } from './sections/BrandBookTeaser.jsx';
 import { ContactSection } from './sections/ContactSection.jsx';
 import { useLang } from '../lib/useLang.js';
 import { NAV_TARGET, NAV_PAGE, NAV_ITEMS } from '../lib/nav.js';
@@ -155,6 +156,7 @@ export default function PortfolioLanding() {
           ))}
         </div>
       </section>
+      <BrandBookTeaser lang={lang} />
       <AboutSection t={t} L={L} />
       <ContactSection t={t} L={L} />
       <Footer items={NAV_ITEMS} logoSrc="/logos/logo-white.svg" email="hello@juanromeroportfolio.com" onNavigate={navigate} />
