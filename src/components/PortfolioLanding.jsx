@@ -10,7 +10,7 @@ import { Crosshair } from './hud/Crosshair.jsx';
 import { AboutSection } from './sections/AboutSection.jsx';
 import { ContactSection } from './sections/ContactSection.jsx';
 import { useLang } from '../lib/useLang.js';
-import { NAV_TARGET, NAV_ITEMS } from '../lib/nav.js';
+import { NAV_TARGET, NAV_PAGE, NAV_ITEMS } from '../lib/nav.js';
 import { PROJECTS, projectIndex } from '../lib/projects.js';
 
 /**
@@ -117,7 +117,7 @@ export default function PortfolioLanding() {
   const t = COPY[lang];
   const L = { font: 'var(--text-label)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--ink-400)' };
   const scrollTo = (id) => { const el = document.getElementById(id); el && window.scrollTo({ top: el.offsetTop - 60, behavior: 'smooth' }); };
-  const navigate = (label) => { const id = NAV_TARGET[label]; id && scrollTo(id); };
+  const navigate = (label) => { if (NAV_PAGE[label]) window.location.href = NAV_PAGE[label]; else if (NAV_TARGET[label]) scrollTo(NAV_TARGET[label]); };
   return (
     <div>
       <Navbar items={NAV_ITEMS} active={active} lang={lang} onLangChange={setLang} onNavigate={navigate} scrolled={scrolled} logoSrc="/logos/logo-color.svg" city="Madrid, Spain" />

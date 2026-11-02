@@ -5,7 +5,7 @@ import { Button } from '../core/Button.jsx';
 import { CaseHero } from '../modules/CaseHero.jsx';
 import { MoreCases } from '../work/MoreCases.jsx';
 import { useLang } from '../../lib/useLang.js';
-import { NAV_TARGET, NAV_ITEMS } from '../../lib/nav.js';
+import { NAV_ITEMS, navigateTo } from '../../lib/nav.js';
 
 /**
  * Shared case-study shell: Navbar + back link + CaseHero + more-cases carousel + closing CTA + Footer.
@@ -24,10 +24,9 @@ export function CaseLayout({ content, children }) {
   const t = content[lang];
   const L = { font: 'var(--text-label)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--ink-400)' };
   const go = (id) => { window.location.href = '/#' + id; };
-  const navigate = (label) => { const id = NAV_TARGET[label]; id && go(id); };
   return (
     <div>
-      <Navbar items={NAV_ITEMS} active="Work" lang={lang} onLangChange={setLang} onNavigate={navigate} scrolled={scrolled} logoSrc="/logos/logo-color.svg" city="Madrid, Spain" />
+      <Navbar items={NAV_ITEMS} active="Work" lang={lang} onLangChange={setLang} onNavigate={navigateTo} scrolled={scrolled} logoSrc="/logos/logo-color.svg" city="Madrid, Spain" />
       <main style={{ maxWidth: 1120, margin: '0 auto', padding: '40px var(--page-margin, 64px) 96px' }}>
         <a href="/#work" style={{ ...L, display: 'inline-block', marginBottom: 24 }}>{'←'} {t.back}</a>
         <CaseHero id={shared.id} status={shared.status} tag={t.tag} title={t.title} intro={t.intro}
@@ -42,7 +41,7 @@ export function CaseLayout({ content, children }) {
           </div>
         </section>
       </main>
-      <Footer items={NAV_ITEMS} logoSrc="/logos/logo-white.svg" email="hello@juanromeroportfolio.com" onNavigate={navigate} />
+      <Footer items={NAV_ITEMS} logoSrc="/logos/logo-white.svg" email="hello@juanromeroportfolio.com" onNavigate={navigateTo} />
     </div>
   );
 }

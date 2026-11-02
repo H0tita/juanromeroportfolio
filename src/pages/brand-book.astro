@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import BrandBook from '../components/brandbook/BrandBook.jsx';
+import { BRAND_BOOK } from '../content/brandbook';
+---
+
+<Base title={BRAND_BOOK.ESP.pageTitle} description={BRAND_BOOK.ESP.description}>
+  <BrandBook client:load />
+</Base>
