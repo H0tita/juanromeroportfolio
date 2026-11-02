@@ -9,6 +9,11 @@ import { GoldenRule } from './GoldenRule.jsx';
 import { ColorModule } from './ColorModule.jsx';
 import { TypeModule } from './TypeModule.jsx';
 import { ComponentBench } from './ComponentBench.jsx';
+import { LogoModule } from './LogoModule.jsx';
+import { GridModule } from './GridModule.jsx';
+import { MotionModule } from './MotionModule.jsx';
+import { IconModule } from './IconModule.jsx';
+import { VoiceModule } from './VoiceModule.jsx';
 import { useLang } from '../../lib/useLang.js';
 import { NAV_ITEMS, navigateTo } from '../../lib/nav.js';
 import { BRAND_BOOK } from '../../content/brandbook';
@@ -29,9 +34,14 @@ export default function BrandBook() {
   const t = BRAND_BOOK[lang];
   const MODULES = [
     { id: 'rule', label: 'GOLDEN RULE', heading: t.rule.heading, intro: t.rule.body, body: <GoldenRule t={t.rule} /> },
+    { id: 'logo', label: 'LOGO', heading: t.logo.heading, intro: t.logo.body, body: <LogoModule t={t.logo} /> },
     { id: 'color', label: 'COLOR', heading: t.color.heading, intro: t.color.body, body: <ColorModule t={t.color} /> },
     { id: 'type', label: 'TYPOGRAPHY', heading: t.type.heading, intro: t.type.body, body: <TypeModule t={t.type} /> },
+    { id: 'grid', label: 'GRID + SPACING', heading: t.grid.heading, intro: t.grid.body, body: <GridModule t={t.grid} /> },
     { id: 'components', label: 'COMPONENTS', heading: t.components.heading, intro: t.components.body, body: <ComponentBench t={t.components} /> },
+    { id: 'motion', label: 'MOTION', heading: t.motion.heading, intro: t.motion.body, body: <MotionModule t={t.motion} /> },
+    { id: 'icons', label: 'ICONOGRAPHY', heading: t.icons.heading, intro: t.icons.body, body: <IconModule t={t.icons} /> },
+    { id: 'voice', label: 'VOICE + TONE', heading: t.voice.heading, intro: t.voice.body, body: <VoiceModule t={t.voice} /> },
     { id: 'process', label: 'PROCESS', heading: t.process.heading, intro: t.process.body },
   ];
 
@@ -68,7 +78,7 @@ export default function BrandBook() {
           <h1 style={{ margin: '20px 0 0', font: 'var(--text-h1)' }}>{t.title}</h1>
           <p style={{ margin: '24px 0 0', font: 'var(--text-body-lg)', color: 'var(--ink-600)', maxWidth: '54ch' }}>{t.intro}</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px 28px', marginTop: 40, paddingTop: 18, borderTop: '1px solid var(--line)' }}>
-            {[['SYSTEM', 'TACTICAL TELEMETRY'], ['MODE', 'LIGHT'], ['LAYERS', 'HUD + EDITORIAL'], ['BUILD', 'V5']].map(([k, v]) => (
+            {[['SYSTEM', 'TACTICAL TELEMETRY'], ['MODE', 'LIGHT'], ['LAYERS', 'HUD + EDITORIAL'], ['BUILD', 'V6']].map(([k, v]) => (
               <span key={k} style={L}>{k} <span style={{ color: 'var(--ink-900)' }}>{v}</span></span>
             ))}
           </div>

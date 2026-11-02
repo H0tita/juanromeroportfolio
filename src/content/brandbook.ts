@@ -1,6 +1,6 @@
 /**
- * Brand Book copy (/brand-book), bilingual. Phase 1 modules: intro, golden rule, colour,
- * typography, components, process. HUD labels stay in English in both languages.
+ * Brand Book copy (/brand-book), bilingual. Modules: intro, golden rule, logo, colour,
+ * typography, grid, components, motion, iconography, voice, process. HUD labels stay in English in both languages.
  * - Process: Juan leads direction, criteria and decisions; AI speeds up execution. Release log
  *   = the real git tags (v1–v5).
  */
@@ -57,6 +57,61 @@ const ESP = {
     cardHint: 'Pasa el ratón por encima: fondo menta y esquinas verdes, sin cambiar el borde.',
     card: { title: 'Tarjeta del sistema', text: 'Superficie --bg-1, borde de 1 px y esquinas cuadradas. La profundidad viene de las líneas, no de sombras.' },
   },
+  logo: {
+    heading: 'Logo: monograma JR',
+    body: ['Una J y una R construidas con bloques y cortes a 45°, más un destello menta que hace de chispa. Cambia la versión y el fondo para ver qué combinaciones funcionan, y activa la construcción para ver sus reglas.'],
+    version: 'Versión', background: 'Fondo', construction: 'Construcción',
+    versions: { color: 'Color', ink: 'Tinta', mint: 'Menta', white: 'Blanco' },
+    backgrounds: { paper: 'Papel', white: 'Blanco', tint: 'Menta claro', dark: 'Oscuro' },
+    verdicts: {
+      ok: 'Uso correcto: el monograma se lee con contraste suficiente.',
+      limited: 'Uso limitado: contraste bajo, solo en tamaños grandes o como elemento decorativo.',
+      misuse: 'Uso incorrecto: el monograma pierde contraste y desaparece.',
+    },
+    legend: ['Área de respeto: X = alto del destello', 'Guías a 45° de los cortes', 'Línea superior y línea base'],
+  },
+  grid: {
+    heading: 'Retícula y espaciado',
+    body: ['Todo el espaciado sale de una escala de 4 px y la maquetación de una retícula de 12 columnas con 24 px de calle. La retícula no se esconde: los puntos y las líneas de 1 px forman parte del contenido.'],
+    scale: 'Escala de espaciado',
+    overlay: 'Mostrar retícula sobre la página',
+    overlayOff: 'Ocultar retícula',
+    live: 'Tu pantalla ahora',
+    labels: { width: 'Ancho', breakpoint: 'Breakpoint', margin: 'Margen', columns: 'Columnas' },
+  },
+  motion: {
+    heading: 'Movimiento: utilitario, nunca decorativo',
+    body: ['Las animaciones informan, no adornan: 120 ms para cambios pequeños, 240 ms para los grandes, siempre con la misma curva. Sin rebotes ni parallax. Y quien pide menos movimiento en su sistema, lo tiene.'],
+    play: 'Reproducir',
+    curves: [
+      { id: 'hud', name: 'ease-hud · 240 ms', verdict: 'SYSTEM', note: 'Arranca rápido y frena suave: se siente inmediato y preciso.' },
+      { id: 'linear', name: 'linear · 240 ms', verdict: 'AVOID', note: 'Mecánico: empieza y para de golpe.' },
+      { id: 'bounce', name: 'bounce · 600 ms', verdict: 'FORBIDDEN', note: 'Rebote: juguetón y lento, rompe el tono técnico.' },
+    ],
+    patterns: 'Patrones del sistema',
+    items: [
+      { id: 'blink', name: 'Parpadeo de estado', note: '1,2 s a pasos: un sistema vivo, no un efecto.' },
+      { id: 'hover', name: 'Hover con esquinas', note: '120 ms: fondo menta y esquinas verdes.' },
+      { id: 'press', name: 'Pulsación', note: 'Baja 1 px, sin escalar.' },
+    ],
+  },
+  icons: {
+    heading: 'Iconografía: geometría primitiva',
+    body: ['No hay fuente de iconos. Los glifos son líneas, rectángulos y círculos de 1 px dibujados en SVG dentro de cada componente, como marcas de un plano técnico. Nunca emoji.'],
+    size: 'Tamaño',
+    names: { plus: 'Cruz de registro', x: 'Aspa', target: 'Diana', brackets: 'Esquinas', square: 'Cuadro de estado', sparkle: 'Destello', arrowUp: 'Flecha externa', arrow: 'Flecha', lattice: 'Retícula de puntos' },
+  },
+  voice: {
+    heading: 'Voz y tono',
+    body: ['Dos voces para dos capas. El HUD habla como la salida de un sistema: seco, en mayúsculas y en inglés técnico. Lo editorial habla en primera persona, directo y con cifras honestas. Pulsa cada ejemplo para reescribirlo.'],
+    rewrite: 'Reescribir', original: 'Ver original',
+    pairs: [
+      { layer: 'HUD', bad: '¡Mira mis resultados!', good: 'MOD.06 — IMPACT', why: 'Sin exclamaciones ni emoji: el HUD etiqueta, no celebra.' },
+      { layer: 'HUD', bad: 'Mejoramos muchísimo la satisfacción', good: 'SAT 60% → 85%', why: 'Los números son el contenido, formateados como telemetría.' },
+      { layer: 'EDITORIAL', bad: 'Me considero un perfil capaz de desarrollar proyectos.', good: 'Diseño, valido y construyo productos de principio a fin.', why: 'Primera persona y afirmación: sin rodeos que resten fuerza.' },
+      { layer: 'EDITORIAL', bad: 'Redujimos un 60 % el tiempo de búsqueda.', good: 'Alrededor de un 60 % menos de tiempo de búsqueda (aproximado).', why: 'Cifras honestas: si es una estimación, se dice.' },
+    ],
+  },
   process: {
     heading: 'Cómo lo construí',
     body: ['La IA ejecuta rápido; la dirección, el criterio y cada decisión de este sistema son míos. Así fue el proceso, de la idea al código.'],
@@ -76,6 +131,7 @@ const ESP = {
         { v: 'V3', date: 'OCT 2026', text: 'Tres case studies con módulos interactivos.' },
         { v: 'V4', date: 'NOV 2026', text: 'Publicación con dominio propio, caso Digisfera y pulsos en el hero.' },
         { v: 'V5', date: 'NOV 2026', text: 'Nuevo hero, capacidades en Sobre mí y carrusel de casos.' },
+        { v: 'V6', date: 'NOV 2026', text: 'Brand Book con módulos interactivos.' },
       ],
     },
   },
@@ -134,6 +190,61 @@ const ENG: typeof ESP = {
     cardHint: 'Hover it: mint background and green corner brackets, the border stays the same.',
     card: { title: 'System card', text: '--bg-1 surface, 1px border and square corners. Depth comes from lines, not shadows.' },
   },
+  logo: {
+    heading: 'Logo: the JR monogram',
+    body: ['A J and an R built from blocks with 45° cuts, plus a mint sparkle as the spark. Switch version and background to see which combinations work, and turn on the construction to see its rules.'],
+    version: 'Version', background: 'Background', construction: 'Construction',
+    versions: { color: 'Colour', ink: 'Ink', mint: 'Mint', white: 'White' },
+    backgrounds: { paper: 'Paper', white: 'White', tint: 'Light mint', dark: 'Dark' },
+    verdicts: {
+      ok: 'Correct use: the monogram reads with enough contrast.',
+      limited: 'Limited use: low contrast, only at large sizes or as a decorative element.',
+      misuse: 'Misuse: the monogram loses contrast and disappears.',
+    },
+    legend: ['Clear space: X = sparkle height', '45° guides from the cuts', 'Top line and baseline'],
+  },
+  grid: {
+    heading: 'Grid and spacing',
+    body: ['All spacing comes from a 4px scale and layout from a 12-column grid with 24px gutters. The grid is not hidden: dots and 1px lines are part of the content.'],
+    scale: 'Spacing scale',
+    overlay: 'Show the grid over the page',
+    overlayOff: 'Hide the grid',
+    live: 'Your screen right now',
+    labels: { width: 'Width', breakpoint: 'Breakpoint', margin: 'Margin', columns: 'Columns' },
+  },
+  motion: {
+    heading: 'Motion: utilitarian, never decorative',
+    body: ['Animations inform, they do not decorate: 120ms for small changes, 240ms for big ones, always with the same curve. No bounces, no parallax. And whoever asks their system for less motion gets it.'],
+    play: 'Play',
+    curves: [
+      { id: 'hud', name: 'ease-hud · 240 ms', verdict: 'SYSTEM', note: 'Starts fast and settles softly: it feels immediate and precise.' },
+      { id: 'linear', name: 'linear · 240 ms', verdict: 'AVOID', note: 'Mechanical: starts and stops abruptly.' },
+      { id: 'bounce', name: 'bounce · 600 ms', verdict: 'FORBIDDEN', note: 'Bounce: playful and slow, breaks the technical tone.' },
+    ],
+    patterns: 'System patterns',
+    items: [
+      { id: 'blink', name: 'Status blink', note: '1.2s in steps: a live system, not an effect.' },
+      { id: 'hover', name: 'Bracket hover', note: '120ms: mint background and green corners.' },
+      { id: 'press', name: 'Press', note: 'Moves down 1px, no scaling.' },
+    ],
+  },
+  icons: {
+    heading: 'Iconography: primitive geometry',
+    body: ['There is no icon font. Glyphs are 1px lines, rectangles and circles drawn in SVG inside each component, like marks on a technical drawing. Never emoji.'],
+    size: 'Size',
+    names: { plus: 'Registration cross', x: 'Cross', target: 'Target', brackets: 'Corner brackets', square: 'Status square', sparkle: 'Sparkle', arrowUp: 'External arrow', arrow: 'Arrow', lattice: 'Dot lattice' },
+  },
+  voice: {
+    heading: 'Voice and tone',
+    body: ['Two voices for two layers. The HUD speaks like system output: dry, uppercase, technical English. The editorial layer speaks in first person, direct, with honest numbers. Tap each example to rewrite it.'],
+    rewrite: 'Rewrite', original: 'See original',
+    pairs: [
+      { layer: 'HUD', bad: 'Check out my results!', good: 'MOD.06 — IMPACT', why: 'No exclamation marks or emoji: the HUD labels, it does not celebrate.' },
+      { layer: 'HUD', bad: 'We improved satisfaction a lot', good: 'SAT 60% → 85%', why: 'Numbers are the content, formatted as telemetry.' },
+      { layer: 'EDITORIAL', bad: 'I consider myself a profile able to develop projects.', good: 'I design, validate and build products end to end.', why: 'First person and assertive: no hedging that weakens it.' },
+      { layer: 'EDITORIAL', bad: 'We cut search time by 60%.', good: 'Around 60% less search time (approximate).', why: 'Honest numbers: if it is an estimate, say so.' },
+    ],
+  },
   process: {
     heading: 'How I built it',
     body: ['AI executes fast; the direction, the criteria and every decision in this system are mine. This was the process, from idea to code.'],
@@ -153,6 +264,7 @@ const ENG: typeof ESP = {
         { v: 'V3', date: 'OCT 2026', text: 'Three case studies with interactive modules.' },
         { v: 'V4', date: 'NOV 2026', text: 'Live on its own domain, Digisfera case and hero pulses.' },
         { v: 'V5', date: 'NOV 2026', text: 'New hero, About capabilities and case carousel.' },
+        { v: 'V6', date: 'NOV 2026', text: 'Brand Book with interactive modules.' },
       ],
     },
   },
