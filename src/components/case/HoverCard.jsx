@@ -2,6 +2,7 @@ import React from 'react';
 /**
  * Card surface with the shared hover state: background tints to mint and the
  * ProjectCard corner brackets appear. The border stays neutral on purpose.
+ * `dark`: inverse surface (bg-dark) that lifts to bg-dark-2 on hover instead of the mint tint.
  */
 const Bracket = ({ pos, on }) => (
   <span aria-hidden="true" style={{ position: 'absolute', width: 12, height: 12, ...pos, borderColor: 'var(--accent)', borderStyle: 'solid', borderWidth: 0, opacity: on ? 1 : 0, transition: 'opacity var(--dur-fast) var(--ease-hud)', pointerEvents: 'none',
@@ -11,11 +12,11 @@ const Bracket = ({ pos, on }) => (
     ...(pos.bottom != null && pos.right != null && { borderBottomWidth: 2, borderRightWidth: 2 }) }} />
 );
 
-export function HoverCard({ children, style }) {
+export function HoverCard({ children, dark = false, style }) {
   const [hover, setHover] = React.useState(false);
   return (
     <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
-      style={{ position: 'relative', background: hover ? 'var(--accent-tint)' : 'var(--bg-1)', border: '1px solid var(--line)', transition: 'background var(--dur-fast) var(--ease-hud)', ...style }}>
+      style={{ position: 'relative', background: dark ? (hover ? 'var(--bg-dark-2)' : 'var(--bg-dark)') : (hover ? 'var(--accent-tint)' : 'var(--bg-1)'), border: '1px solid ' + (dark ? 'var(--bg-dark-2)' : 'var(--line)'), transition: 'background var(--dur-fast) var(--ease-hud)', ...style }}>
       <Bracket on={hover} pos={{ top: -1, left: -1 }} />
       <Bracket on={hover} pos={{ top: -1, right: -1 }} />
       <Bracket on={hover} pos={{ bottom: -1, left: -1 }} />

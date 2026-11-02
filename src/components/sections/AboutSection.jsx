@@ -1,11 +1,13 @@
 import React from 'react';
 import { SocialLink } from '../core/SocialLink.jsx';
+import { HoverCard } from '../case/HoverCard.jsx';
 import { SOCIAL } from '../../lib/social.js';
 
 /**
  * About section — ported from the DS landing (ui_kits/landing/index.html).
- * Framed profile photo (HUD corner brackets) + bio, and an experience
- * grid of "REC" cards. Bilingual copy is injected via `t`; `L` is the
+ * Framed profile photo (HUD corner brackets) + bio, a grid of "CAP" capability
+ * cards on a dark surface for emphasis (with an optional NEXT line for where each
+ * one is heading), and an experience grid of "REC" cards. Bilingual copy is injected via `t`; `L` is the
  * shared HUD micro-label style from PortfolioLanding.
  */
 const BRACKETS = [
@@ -35,12 +37,36 @@ export function AboutSection({ t, L }) {
         <div style={{ flex: '1 1 480px', minWidth: 'min(100%, 320px)' }}>
           <h2 style={{ margin: 0, font: 'var(--text-h2)' }}>{t.aboutTitle}</h2>
           <div style={{ ...L, color: 'var(--accent-ink)', marginTop: 12 }}>{t.aboutRole}</div>
-          <p style={{ margin: '18px 0 0', font: 'var(--text-body-lg)', color: 'var(--ink-600)', maxWidth: '58ch' }}>{t.aboutBio}</p>
+          {t.aboutBio.map((p, i) => (
+            <p key={i} style={{ margin: (i ? 14 : 18) + 'px 0 0', font: 'var(--text-body-lg)', color: 'var(--ink-600)', maxWidth: '58ch' }}>{p}</p>
+          ))}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 28 }}>
             <SocialLink network="linkedin" href={SOCIAL.linkedin} label="LinkedIn" />
             <SocialLink network="youtube" href={SOCIAL.youtube} label="YouTube" />
           </div>
         </div>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', margin: '56px 0 20px' }}>
+        <span style={{ ...L, color: 'var(--accent-ink)' }}>JR.ABOUT — {t.capsLabel}</span>
+        <span style={L}>{String(t.caps.length).padStart(2, '0')} CAP</span>
+      </div>
+      <div className="jr-caps" style={{ display: 'grid', gap: 24 }}>
+        {t.caps.map((c, i) => (
+          <HoverCard key={c.area} dark style={{ padding: 24, display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10 }}>
+              <span style={{ ...L, color: 'var(--ink-inverse)' }}>CAP.{String(i + 1).padStart(2, '0')}</span>
+              <span style={{ ...L, color: 'var(--accent)' }}>{c.verb}</span>
+            </div>
+            <div style={{ font: 'var(--text-h5)', color: 'var(--ink-inverse)' }}>{c.area}</div>
+            <p style={{ margin: 0, font: 'var(--text-body-sm)', color: 'var(--ink-inverse-dim)', flex: 1 }}>{c.text}</p>
+            {c.next && (
+              <div style={{ paddingTop: 12, borderTop: '1px solid var(--bg-dark-2)', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <span style={{ ...L, color: 'var(--accent)' }}>NEXT →</span>
+                <span style={{ font: 'var(--text-caption)', color: 'var(--ink-inverse-dim)' }}>{c.next}</span>
+              </div>
+            )}
+          </HoverCard>
+        ))}
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', margin: '56px 0 20px' }}>
         <span style={{ ...L, color: 'var(--accent-ink)' }}>JR.ABOUT — {t.expLabel}</span>
@@ -71,7 +97,8 @@ export function AboutSection({ t, L }) {
           </div>
         ))}
       </div>
-      <style>{'@keyframes jr-blink{to{visibility:hidden}}'}</style>
+      {/* 4 → 2×2 → 1 columns, so a capability card never sits alone on a row. */}
+      <style>{'@keyframes jr-blink{to{visibility:hidden}}.jr-caps{grid-template-columns:repeat(4,minmax(0,1fr))}@media(max-width:1100px){.jr-caps{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.jr-caps{grid-template-columns:1fr}}'}</style>
     </section>
   );
 }

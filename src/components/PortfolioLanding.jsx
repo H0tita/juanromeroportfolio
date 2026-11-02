@@ -20,8 +20,9 @@ import { NAV_TARGET, NAV_ITEMS } from '../lib/nav.js';
 const COPY = {
   ESP: {
     heroLabel: 'JR.SYS.2026 — PORTFOLIO ONLINE',
-    title: 'Diseño de experiencias End To End',
-    intro: 'Product designer híbrido — UX, tecnología y negocio. Diseño, valido y construyo flujos complejos de extremo a extremo.',
+    title: 'Product Happens.',
+    titleSub: 'Llevo las ideas a la realidad, de principio a fin.',
+    intro: 'Product designer entre UX, tecnología y negocio. Detecto qué falla en la experiencia, lo diseño, lo construyo con IA y lo alineo con los objetivos del negocio.',
     cta: 'Ver proyectos', cta2: 'Contacto',
     workTitle: 'My Work',
     workIntro: 'Casos seleccionados. Cada proyecto documenta problema, proceso y resultado con métricas verificadas.',
@@ -30,8 +31,18 @@ const COPY = {
     p3: { title: 'Intrabuddy · ING', excerpt: 'Agente de IA en la intranet de ING', metric: { value: '~60%', label: 'menos tiempo de búsqueda' } },
     p4: { title: 'Digisfera · ING', excerpt: 'Marca e insignias para digitalizar oficinas', metric: { value: '3 × 2', label: 'insignias en pegatina' } },
     aboutTitle: 'Juan Romero',
-    aboutRole: 'UX Product Designer | Product + Tech + Business | AI Enthusiastic',
-    aboutBio: 'Me considero un perfil híbrido capaz de desarrollar proyectos End To End, haciendo de puente entre las ramas de Producto, Tech y Negocio.',
+    aboutRole: 'Product Designer · UX/UI · AI · Business',
+    aboutBio: [
+      'Soy product designer y trabajo donde se cruzan experiencia, tecnología y negocio. Tengo olfato para detectar dónde se rompe la experiencia de alguien —en una app, una web, una herramienta interna o un objeto físico— y llevo la solución de la idea a algo que funciona.',
+      'Uso la IA como parte de mi forma de trabajar: para idear, prototipar y construir más rápido. No como adorno.'
+    ],
+    capsLabel: 'CAPACIDADES',
+    caps: [
+      { area: 'UX', verb: 'DETECT', text: 'Detecto qué le cuesta al usuario y por qué, en cualquier entorno: apps, webs, herramientas internas o productos físicos.' },
+      { area: 'UI', verb: 'CRAFT', text: 'Hago que se vea y se sienta bien combinando interfaz, diseño gráfico, vídeo y 3D.', next: 'Diseño de producto físico' },
+      { area: 'Tech + IA', verb: 'BUILD', text: 'Doy vida a mis ideas programando y con IA: prototipos funcionales, agentes y herramientas reales.', next: 'Prototipado de hardware' },
+      { area: 'Negocio', verb: 'ALIGN', text: 'Entiendo cómo funciona una organización, leo los datos y conecto cada decisión de producto con su objetivo estratégico.' }
+    ],
     expLabel: 'EXPERIENCIA',
     exp: [
       { company: 'Telefónica Tech (Novanotio)', role: 'UX Product Manager', current: true, bullets: ['Diseño UX/UI de dashboards y PPTs.', 'Planificación de proyectos en sectores IoT, IA, robótica, cyber e innovación.', 'Market research.'], period: 'JUL 2026 — PRESENT', location: 'MADRID, ES' },
@@ -48,8 +59,9 @@ const COPY = {
   },
   ENG: {
     heroLabel: 'JR.SYS.2026 — PORTFOLIO ONLINE',
-    title: 'End To End experience design',
-    intro: 'Hybrid product designer — UX, tech and business. I design, validate and build complex end-to-end flows.',
+    title: 'Product Happens.',
+    titleSub: 'I take ideas into reality, end to end.',
+    intro: 'Product designer between UX, tech and business. I spot what breaks in the experience, design it, build it with AI and align it with the business goals.',
     cta: 'View work', cta2: 'Contact',
     workTitle: 'My Work',
     workIntro: 'Selected cases. Each project documents problem, process and outcome with verified metrics.',
@@ -58,8 +70,18 @@ const COPY = {
     p3: { title: 'Intrabuddy · ING', excerpt: 'AI agent in the ING intranet', metric: { value: '~60%', label: 'less search time' } },
     p4: { title: 'Digisfera · ING', excerpt: 'Brand and badges to digitalise branches', metric: { value: '3 × 2', label: 'sticker badges' } },
     aboutTitle: 'Juan Romero',
-    aboutRole: 'UX Product Designer | Product + Tech + Business | AI Enthusiastic',
-    aboutBio: 'I am a hybrid profile able to run End To End projects, bridging Product, Tech and Business.',
+    aboutRole: 'Product Designer · UX/UI · AI · Business',
+    aboutBio: [
+      'I’m a product designer working where experience, technology and business meet. I have a nose for where someone’s experience breaks —in an app, a website, an internal tool or a physical object— and I take the fix from idea to something that works.',
+      'AI is part of how I work: to ideate, prototype and build faster. Not as decoration.'
+    ],
+    capsLabel: 'CAPABILITIES',
+    caps: [
+      { area: 'UX', verb: 'DETECT', text: 'I spot what users struggle with and why, in any setting: apps, websites, internal tools or physical products.' },
+      { area: 'UI', verb: 'CRAFT', text: 'I make it look and feel right by combining interface, graphic design, video and 3D.', next: 'Physical product design' },
+      { area: 'Tech + AI', verb: 'BUILD', text: 'I bring my ideas to life with code and AI: working prototypes, agents and real tools.', next: 'Hardware prototyping' },
+      { area: 'Business', verb: 'ALIGN', text: 'I understand how an organisation works, read the data and tie every product decision to its strategic goal.' }
+    ],
     expLabel: 'EXPERIENCE',
     exp: [
       { company: 'Telefónica Tech (Novanotio)', role: 'UX Product Manager', current: true, bullets: ['UX/UI design of dashboards and PPTs.', 'Project planning across IoT, AI, robotics, cyber and innovation.', 'Market research.'], period: 'JUL 2026 — PRESENT', location: 'MADRID, ES' },
@@ -116,7 +138,7 @@ export default function PortfolioLanding() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
             <StatusIndicator status="active" label={t.heroLabel} />
           </div>
-          <h1 style={{ margin: 0, font: 'var(--text-h1)' }}>{t.title}</h1>
+          <h1 style={{ margin: 0, font: 'var(--text-h1)' }}>{t.title}<span style={{ display: 'block', marginTop: 16, font: 'var(--text-h3)', fontSize: 'clamp(22px, 2.6vw, 30px)', color: 'var(--ink-600)' }}>{t.titleSub}</span></h1>
           <p style={{ margin: '28px 0 0', font: 'var(--text-body-lg)', color: 'var(--ink-600)', maxWidth: '54ch' }}>{t.intro}</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 40 }}>
             <Button variant="primary" arrow size="lg" onClick={() => scrollTo('work')}>{t.cta}</Button>
