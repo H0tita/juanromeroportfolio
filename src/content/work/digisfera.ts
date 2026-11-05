@@ -66,8 +66,9 @@ const ESP = {
     heading: 'Tres niveles de insignia',
     body: [
       'Los puntos se traducen en reconocimiento visible: tres niveles de insignia, cada uno con más estrellas. Las diseñé en versión masculina y femenina para que cada gestor pudiera verse en la suya.',
-      'Pasa el ratón por encima de cada pegatina.',
     ] as Paragraph[],
+    // Last intro line, by layout: hover on the grid, swipe on the carousel (<550px).
+    hint: { hover: 'Pasa el ratón por encima de cada pegatina.', swipe: 'Desliza para ver cada nivel.' },
     rows: [
       { key: 'male', label: 'SET A / MASCULINE', name: 'Masculinas' },
       { key: 'female', label: 'SET B / FEMININE', name: 'Femeninas' },
@@ -147,8 +148,8 @@ const ENG: typeof ESP = {
     heading: 'Three badge levels',
     body: [
       'Points turn into visible recognition: three badge levels, each with more stars. I designed them in masculine and feminine versions so every adviser could see themselves in theirs.',
-      'Hover over each sticker.',
     ],
+    hint: { hover: 'Hover over each sticker.', swipe: 'Swipe to see each level.' },
     rows: [
       { key: 'male', label: 'SET A / MASCULINE', name: 'Masculine' },
       { key: 'female', label: 'SET B / FEMININE', name: 'Feminine' },

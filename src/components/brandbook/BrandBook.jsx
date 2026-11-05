@@ -78,7 +78,7 @@ export default function BrandBook() {
           <h1 style={{ margin: '20px 0 0', font: 'var(--text-h1)' }}>{t.title}</h1>
           <p style={{ margin: '24px 0 0', font: 'var(--text-body-lg)', color: 'var(--ink-600)', maxWidth: '54ch' }}>{t.intro}</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px 28px', marginTop: 40, paddingTop: 18, borderTop: '1px solid var(--line)' }}>
-            {[['SYSTEM', 'TACTICAL TELEMETRY'], ['MODE', 'LIGHT'], ['LAYERS', 'HUD + EDITORIAL'], ['BUILD', 'V7']].map(([k, v]) => (
+            {[['SYSTEM', 'TACTICAL TELEMETRY'], ['MODE', 'LIGHT'], ['LAYERS', 'HUD + EDITORIAL'], ['BUILD', 'V8']].map(([k, v]) => (
               <span key={k} style={L}>{k} <span style={{ color: 'var(--ink-900)' }}>{v}</span></span>
             ))}
           </div>

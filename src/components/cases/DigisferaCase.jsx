@@ -22,7 +22,10 @@ export default function DigisferaCase() {
 
           <ProcessTimeline moduleId="MOD.02" heading={t.headings.process} phases={t.phases} />
 
-          <ModuleSection moduleId="MOD.03" label="BADGES / 3 LEVELS × 2 SETS" heading={t.badges.heading} intro={<Body items={t.badges.body} />}>
+          <ModuleSection moduleId="MOD.03" label="BADGES / 3 LEVELS × 2 SETS" heading={t.badges.heading} intro={<>
+            <Body items={t.badges.body} />
+            <p style={{ margin: '14px 0 0' }}><span className="jr-hint-hover">{t.badges.hint.hover}</span><span className="jr-hint-swipe">{t.badges.hint.swipe}</span></p>
+          </>}>
             <StickerBadges rows={t.badges.rows} levels={t.badges.levels} src={DIGISFERA_CASE.badgeSrc} alt={t.badges.alt} />
           </ModuleSection>
 
